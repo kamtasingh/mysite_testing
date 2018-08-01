@@ -122,5 +122,5 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = '/static/'
 ALLOWED_DOMAIN_LIST = ['hcl.com','mitel.com']
-
+LOGIN_URL = "/"
 from local_settings import *

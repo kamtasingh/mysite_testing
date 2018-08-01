@@ -69,4 +69,7 @@ def sanity(request):
     template_name = 'sanity.html'
     return render(request, template_name, {})
 
+def build(request):
+    template_name = 'build.html'
+    return render(request, template_name, {})
 

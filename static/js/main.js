@@ -1824,4 +1824,3 @@ function setHeader(xhr) {
   } catch (error) {
     console.log(error);
   }
-

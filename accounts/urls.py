@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^accounts/register/$', registration, name='site-register'),
     url(r'^mysite/$', mysite, name='mysite'),
     url(r'^mysite/sanity/$', sanity, name='sanity'),
+    url(r'^mysite/build/$', build, name='build'),
 
 ]
 
