@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ht#_fc+(b0tq&$@j*4k4+(h!fxwne$dd-o*f&o=%f419dwru36'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -122,3 +122,5 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = '/static/'
 ALLOWED_DOMAIN_LIST = ['hcl.com','mitel.com']
+
+from local_settings import *

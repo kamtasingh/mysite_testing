@@ -17,13 +17,13 @@ def login_site(request):
             try:
                 cus = User.objects.get(email=username)
             except:
-                return HttpResponseRedirect("/accounts/login/?msg=Username is not correct.Please fill correct one.")
+                return HttpResponseRedirect("/?msg=Username is not correct.Please fill correct one.")
         user = authenticate(username=cus.username, password=password)
         if user:
             login(request, user)
             return HttpResponseRedirect("/mysite/")
         else:
-            return HttpResponseRedirect("/accounts/login/?msg=Password is not correct.Please fill correct one.")
+            return HttpResponseRedirect("/?msg=Password is not correct.Please fill correct one.")
     else:
         template_name = 'login.html'
         return render(request, template_name, {})
@@ -31,7 +31,7 @@ def login_site(request):
 
 def auth_logout(request):
     logout(request)
-    return HttpResponseRedirect("/accounts/login/")
+    return HttpResponseRedirect("/")
 
 def registration(request):
     if request.method == "POST":
