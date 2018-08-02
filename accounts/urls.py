@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^mysite/$', mysite, name='mysite'),
     url(r'^mysite/sanity/$', sanity, name='sanity'),
     url(r'^mysite/build/$', build, name='build'),
+    url(r'^mysite/runtest/$', runtest, name='runtest'),
 
 ]
 

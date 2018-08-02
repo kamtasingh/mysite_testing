@@ -69,7 +69,13 @@ def sanity(request):
     template_name = 'sanity.html'
     return render(request, template_name, {})
 
+@login_required
 def build(request):
     template_name = 'build.html'
     return render(request, template_name, {})
+
+def runtest(request):
+    template_name = 'runtest.html'
+    return render(request, template_name, {})
+
 
