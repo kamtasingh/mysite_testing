@@ -1,10 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "admin_base.html" %}
 
-</body>
-</html>
+{% load staticfiles %}
+{% block title %} Run Tests - {{ user.username }} {% endblock %}
+{% block main %}
+
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">Application Details</div>
+                                    <div class="card-body">
+                                            <div class="row form-group">
+
+                                                <div class="col-12 col-md-3">
+                                                    <select name="application" id="application" class="form-control" required>
+                                                        <option value="">--Application --</option>
+                                                        <option value="winpc">winpc</option>
+                                                        <option value="ios">ios</option>
+                                                        <option value="mac">mac</option>
+                                                        <option value="web">web</option>
+                                                        <option value="android">android</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-12 col-md-3">
+                                                    <select name="callmanager" id="callmanager" class="form-control">
+                                                        <option value="">-- Call Manager --</option>
+                                                        <option value="winpc">winpc</option>
+                                                        <option value="ios">ios</option>
+                                                        <option value="mac">mac</option>
+                                                        <option value="web">web</option>
+                                                        <option value="android">android</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-md-3">
+                                                    <select name="language" id="language" class="form-control">
+                                                        <option value="">-- Language --</option>
+                                                        <option value="winpc">winpc</option>
+                                                        <option value="ios">ios</option>
+                                                        <option value="mac">mac</option>
+                                                        <option value="web">web</option>
+                                                        <option value="android">android</option>
+                                                    </select>
+
+                                    </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">Execution Server</div>
+                                    <div class="card-body">
+                                            <div class="row form-group">
+
+                                                <div class="col-12 col-md-3">
+                                                    <select name="agentip" id="agentip" class="form-control" required>
+                                                        <option value="">--Agent IP --</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-12 col-md-3">
+                                                    <select name="agentconfig" id="agentconfig" class="form-control">
+                                                        <option value="">-- Agent Config --</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-md-3">
+                                                    <select name="agentdb" id="agentdb" class="form-control">
+                                                        <option value="">-- Agent DB --</option>
+                                                    </select>
+
+                                    </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+{% comment %}
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive table--no-card m-b-30">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>agentIP</th>
+                                                <th>agentState</th>
+                                                <th>buildName</th>
+                                                <th>buildState</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody id="agentdata">
+                                            <tr>
+                                                <td colspan="4" style="text-align:left">No Agent found for this platform</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+{% endcomment %}
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 CoolAdmin. All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
+{% block extrajs %}
+
+    <script src="{% static 'vendor/chartjs/Chart.bundle.min.js' %}"></script>
+{% endblock %}
