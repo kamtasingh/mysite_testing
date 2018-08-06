@@ -1824,3 +1824,93 @@ function setHeader(xhr) {
   } catch (error) {
     console.log(error);
   }
+
+
+
+(function ($) {
+  $("select#application").change(function(){
+  $.ajax({
+          url: 'http://10.112.86.90/api/testmachine',
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {appName: $(this).val()},
+          beforeSend: function() {
+            //$(".fa-spin").show();
+            },
+          success: function(data) {
+          options="";
+          var statuscode = 0;
+          options = '<option value=" "> --- Choose AgentIP----</option>';
+          for (var i = 0; i < data.length; i++) {
+           options += '<option value="' + data[i] +'">' + data[i] + '</option>';
+           statuscode=1
+           }
+
+          $("select#agentip").html(options);
+          agentconfigoptions  = '<option value=" "> --- Choose AgentConfig----</option>';
+          agentconfigdb  = '<option value=" "> --- Choose AgentDB----</option>';
+          $("select#agentconfig").html(agentconfigoptions);
+          $("select#agentdb").html(agentconfigdb);
+
+
+          },
+          error: function() { alert('boo!'); }
+        });
+});
+})(jQuery);
+
+(function ($) {
+  $("select#agentip").change(function(){
+  $.ajax({
+          url: 'http://10.112.86.90/api/testmachine/GetConfig',
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {machineIP: $(this).val()},
+          beforeSend: function() {
+            //$(".fa-spin").show();
+            },
+          success: function(data) {
+          options="";
+          var statuscode = 0;
+          options = '<option value=" "> --- Choose AgentConfig----</option>';
+          for (var i = 0; i < data.length; i++) {
+           options += '<option value="' + data[i] +'">' + data[i] + '</option>';
+           statusCode=1
+           }
+          $("select#agentconfig").html(options);
+
+          agentconfigdb  = '<option value=" "> --- Choose AgentDB----</option>';
+          $("select#agentdb").html(agentconfigdb);
+
+          },
+          error: function() { alert('boo!'); }
+        });
+});
+})(jQuery);
+
+(function ($) {
+  $("select#agentconfig").change(function(){
+  $.ajax({
+          url: 'http://10.112.86.90/api/testmachine/GetDB',
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {machineIP: $('#agentip').val(),ConfigName: $(this).val()},
+          beforeSend: function() {
+            //$(".fa-spin").show();
+            },
+          success: function(data) {
+          var statuscode = 0;
+          options = '<option value=" "> --- Choose AgentDB----</option>';
+          for (var i = 0; i < data.length; i++) {
+           options += '<option value="' + data[i] +'">' + data[i] + '</option>';
+           statusCode=1
+           }
+          $("select#agentdb").html(options);
+          },
+          error: function() { alert('boo!'); }
+        });
+});
+})(jQuery);
