@@ -2,6 +2,9 @@
 
 {% load staticfiles %}
 {% block title %} Run Tests - {{ user.username }} {% endblock %}
+{% block extracss %}
+
+    {% endblock %}
 {% block main %}
 
             <div class="main-content">
@@ -79,34 +82,15 @@
 
 
                         </div>
-{% comment %}
+
 
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-data3">
-                                        <thead>
-                                            <tr>
-                                                <th>agentIP</th>
-                                                <th>agentState</th>
-                                                <th>buildName</th>
-                                                <th>buildState</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody id="agentdata">
-                                            <tr>
-                                                <td colspan="4" style="text-align:left">No Agent found for this platform</td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <div id="tree"></div>
                             </div>
                         </div>
 
-{% endcomment %}
+
 
 
                         <div class="row">
@@ -123,5 +107,74 @@
 
 {% endblock %}
 {% block extrajs %}
+<script src="{% static 'js/bootstrap-treeview.js' %}"></script>
+<script type="text/javascript">
 
+
+function getTree(){
+        var defaultData = [
+          {
+            text: 'Parent 1',
+            href: '#parent1',
+            tags: ['4'],
+            nodes: [
+              {
+                text: 'Child 1',
+                href: '#child1',
+                tags: ['2'],
+                unorganiged: 'gvdgddgh',
+                nodes: [
+                  {
+                    text: 'Grandchild 1',
+                    href: '#grandchild1',
+                    tags: ['0']
+                  },
+                  {
+                    text: 'Grandchild 2',
+                    href: '#grandchild2',
+                    tags: ['0']
+                  }
+                ]
+              },
+              {
+                text: 'Child 2',
+                href: '#child2',
+                tags: ['0']
+              }
+            ]
+          },
+          {
+            text: 'Parent 2',
+            href: '#parent2',
+            tags: ['0']
+          },
+          {
+            text: 'Parent 3',
+            href: '#parent3',
+             tags: ['0']
+          },
+          {
+            text: 'Parent 4',
+            href: '#parent4',
+            tags: ['0']
+          },
+          {
+            text: 'Parent 5',
+            href: '#parent5'  ,
+            tags: ['0']
+          }
+        ];
+
+        return defaultData;
+        }
+
+        $('#tree').treeview({data: getTree(),showIcon: true,expandIcon: 'fa fa-plus',collapseIcon: 'fa fa-minus',
+        onNodeSelected: function(event, data) {
+        alert(data);
+        console.log(data);
+    // Your logic goes here
+    }
+});
+
+</script>
 {% endblock %}
