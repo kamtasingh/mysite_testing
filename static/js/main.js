@@ -1857,6 +1857,8 @@ function setHeader(xhr) {
           },
           error: function() { alert('boo!'); }
         });
+
+  filltags();
 });
 })(jQuery);
 
@@ -1914,3 +1916,96 @@ function setHeader(xhr) {
         });
 });
 })(jQuery);
+ $(".select-ajax").select2({
+   tags : true,
+});
+
+function filltags(){
+$('.select-ajax').html('');
+if ($('#application').val()){
+// var newOption = new Option("Hello", 1, false, false);
+// var newOption = new Option("Hello2", 2, false, false);
+
+
+$.ajax({
+          url: 'http://10.112.86.90/api/tags',
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {appname: $('#application').val()},
+
+          success: function(data) {
+          for (var i = 0; i < data.length; i++) {
+          //console.log(data);
+          var newOption = new Option(data[i], data[i], false, false);
+          $('.select-ajax').append(newOption);
+           }
+          },
+          error: function() { alert('boo!'); }
+        });
+
+
+
+}
+
+}
+
+$('.select-ajax').on('select2:select select2:unselect', function (e) {
+    // var data = e.params.data;
+    // console.log(data);
+    console.log($('.select-ajax').val());
+    $.ajax({
+          url: 'http://10.112.86.90/api/tags/GetTC',
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {tag: $('.select-ajax').val()},
+          success: function(data) {
+
+          tabledata="";
+          for (var i = 0; i < data.length; i++) {
+          if(jQuery.inArray(data[i], unselected_checkbox) !== -1){
+          tabledata+='<tr><td style="text-align:left;width:10%"><input type=checkbox value="'+data[i]+'" class="testcasecheckbox"  /></td><td style="text-align:left;width:10%">'+data[i]+'</td></tr>';
+          }
+          else{
+          tabledata+='<tr><td style="text-align:left;width:10%"><input type=checkbox value="'+data[i]+'" class="testcasecheckbox" checked /></td><td style="text-align:left;width:10%">'+data[i]+'</td></tr>';
+          }
+          }
+           $('.testcases').html(tabledata);
+           $("input.testcasecheckbox").change(function() {
+          datacalculation($(this));
+});
+
+
+
+          },
+
+          error: function() { alert('boo!'); }
+        });
+});
+
+var unselected_checkbox = [];
+
+$("input#header-checkbox").change(function() {
+    var ischecked= $(this).is(':checked');
+    if(!ischecked){
+     $('input:checkbox').prop('checked',false);
+    }
+    else{
+    $('input:checkbox').prop('checked',true);
+    }
+});
+
+
+
+function datacalculation(obj){
+
+var ischecked= $(obj).is(':checked');
+    if(!ischecked){
+     unselected_checkbox.push($(obj).val());
+    }
+    else{
+    unselected_checkbox.splice( $.inArray($(obj).val(), unselected_checkbox), 1 );
+    }
+
+}
