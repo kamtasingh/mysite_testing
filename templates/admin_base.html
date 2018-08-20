@@ -47,7 +47,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="{% static 'images/icon/QAGpng.ico' %}" alt="CoolAdmin" />
+                            <img src="{% static 'images/icon/qalogo.png' %}" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -70,10 +70,12 @@
                             <a href="/mysite/sanity">
                                 <i class="fas fa-table"></i>Auto Sanity</a>
                         </li>
+                        {% if user.is_staff %}
                         <li >
                             <a href="/mysite/build">
-                                <i class="fas fa-tasks"></i>Build Details</a>
+                                <i class="fas fa-tasks"></i>Build Details - {{ user.is_staff }}</a>
                         </li>
+                        {% endif %}
                         <li >
                             <a href="/mysite/runtest">
                                 <i class="fas fa-tasks"></i>Run Tests</a>
@@ -88,7 +90,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="{% static 'images/icon/QAGpng.ico' %}" alt="Cool Admin" />
+                    <img src="{% static 'images/icon/qalogo.png' %}" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -103,10 +105,12 @@
                             <a href="/mysite/sanity">
                                 <i class="fas fa-table"></i>Auto Sanity</a>
                         </li>
+                        {% if user.is_staff %}
                         <li >
                             <a href="/mysite/build">
                                 <i class="fas fa-tasks"></i>Build Details</a>
                         </li>
+                        {% endif %}
                         <li >
                             <a href="/mysite/runtest">
                                 <i class="fas fa-tasks"></i>Run Tests</a>
