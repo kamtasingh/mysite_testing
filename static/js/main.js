@@ -1825,7 +1825,55 @@ function setHeader(xhr) {
     console.log(error);
   }
 
+(function ($) {
+  $("button#posttestcases").click(function(){
 
+  var application = $('#application').val();
+  var callmanager = $('#callmanager').val();
+  var language = $('#language').val();
+  var agentip = $('#agentip').val();
+  var agentconfig = $('#agentconfig').val();
+  var agentdb = $('#agentdb').val();
+  var checkeddata= [];
+  $('input[class="testcasecheckbox"]:checked').each(function() {
+   checkeddata.push(this.value);
+  });
+  if (!application){
+  alert("Please Choose Application before testcase submission.");
+  return;
+  }
+  else if (!callmanager){
+  alert("Please Choose Call Manager before testcase submission.");
+  return;
+  }
+  else if (!language){
+  alert("Please Choose Language before testcase submission.");
+  return;
+  }
+  else if (!agentip){
+  alert("Please Choose AgentIP before testcase submission.");
+  return;
+  }
+  else if (!agentconfig){
+  alert("Please Choose agentconfig before testcase submission.");
+  return;
+  }
+  else if (!agentdb){
+  alert("Please Choose agentDB before testcase submission.");
+  return;
+  }
+  else if (checkeddata.length < 1){
+  alert("Please Choose TestCases before testcase submission.");
+  return;
+  }
+  $.post('http://10.112.86.90/api/build', {application: application,callmanager:callmanager,language:language,agentip:agentip,agentconfig:agentconfig,agentdb:agentdb,testcases:checkeddata }, function(data, status){
+
+                        //alert(data);
+                        alert("Test Cases has been submitted successfully").
+                    }, 'json');
+
+});
+})(jQuery);
 
 (function ($) {
   $("select#application").change(function(){
@@ -1841,15 +1889,15 @@ function setHeader(xhr) {
           success: function(data) {
           options="";
           var statuscode = 0;
-          options = '<option value=" "> --- Choose AgentIP----</option>';
+          options = '<option value=""> --- Choose AgentIP----</option>';
           for (var i = 0; i < data.length; i++) {
            options += '<option value="' + data[i] +'">' + data[i] + '</option>';
            statuscode=1
            }
 
           $("select#agentip").html(options);
-          agentconfigoptions  = '<option value=" "> --- Choose AgentConfig----</option>';
-          agentconfigdb  = '<option value=" "> --- Choose AgentDB----</option>';
+          agentconfigoptions  = '<option value=""> --- Choose AgentConfig----</option>';
+          agentconfigdb  = '<option value=""> --- Choose AgentDB----</option>';
           $("select#agentconfig").html(agentconfigoptions);
           $("select#agentdb").html(agentconfigdb);
 
@@ -1876,14 +1924,14 @@ function setHeader(xhr) {
           success: function(data) {
           options="";
           var statuscode = 0;
-          options = '<option value=" "> --- Choose AgentConfig----</option>';
+          options = '<option value=""> --- Choose AgentConfig----</option>';
           for (var i = 0; i < data.length; i++) {
            options += '<option value="' + data[i] +'">' + data[i] + '</option>';
            statusCode=1
            }
           $("select#agentconfig").html(options);
 
-          agentconfigdb  = '<option value=" "> --- Choose AgentDB----</option>';
+          agentconfigdb  = '<option value=""> --- Choose AgentDB----</option>';
           $("select#agentdb").html(agentconfigdb);
 
           },
@@ -1905,7 +1953,7 @@ function setHeader(xhr) {
             },
           success: function(data) {
           var statuscode = 0;
-          options = '<option value=" "> --- Choose AgentDB----</option>';
+          options = '<option value=""> --- Choose AgentDB----</option>';
           for (var i = 0; i < data.length; i++) {
            options += '<option value="' + data[i] +'">' + data[i] + '</option>';
            statusCode=1
