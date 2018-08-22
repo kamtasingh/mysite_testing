@@ -1869,7 +1869,7 @@ function setHeader(xhr) {
   $.post('http://10.112.86.90/api/build', {application: application,callmanager:callmanager,language:language,agentip:agentip,agentconfig:agentconfig,agentdb:agentdb,testcases:checkeddata }, function(data, status){
 
                         //alert(data);
-                        alert("Test Cases has been submitted successfully").
+                        alert("Test Cases has been submitted successfully");
                     }, 'json');
 
 });
