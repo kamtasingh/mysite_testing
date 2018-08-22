@@ -360,8 +360,8 @@
             }
           ],
           labels: [
-            'Products',
-            'Services'
+            'Testcases',
+            'Build'
           ]
         },
         options: {
@@ -649,8 +649,8 @@
             }
           ],
           labels: [
-            'Products',
-            'Services'
+            'Testcases',
+            'Build'
           ]
         },
         options: {
