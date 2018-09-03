@@ -74,6 +74,7 @@ def build(request):
     template_name = 'build.html'
     return render(request, template_name, {})
 
+@login_required
 def runtest(request):
     template_name = 'runtest.html'
     return render(request, template_name, {})
