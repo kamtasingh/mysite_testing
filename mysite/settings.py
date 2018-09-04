@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ht#_fc+(b0tq&$@j*4k4+(h!fxwne$dd-o*f&o=%f419dwru36'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ipmonitor',
 ]
 
 MIDDLEWARE = [
@@ -72,10 +73,22 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'activemqsubscriber',
+        'USER': 'sa',
+        'PASSWORD': 'india@123',
+        'HOST': '10.37.117.165',
+        'PORT': '3306',
     }
 }
 
@@ -123,4 +136,4 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 ALLOWED_DOMAIN_LIST = ['hcl.com','mitel.com']
 LOGIN_URL = "/"
-from local_settings import *
+#from local_settings import *
