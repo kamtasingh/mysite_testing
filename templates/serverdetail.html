@@ -1,0 +1,62 @@
+{% extends "admin_base.html" %}
+
+{% load staticfiles %}
+{% block title %} Build Details - {{ user.username }} {% endblock %}
+{% block main %}
+
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive table--no-card m-b-30">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+
+                                                <th>v4_ip</th>
+                                                <th>status</th>
+                                                <th>machine_type</th>
+                                                <th>operating_system</th>
+                                                <th>fqdn</th>
+                                                <th>ram</th>
+                                                <th>location</th>
+                                                <th>owner_team</th>
+                                                <th>owner_person</th>
+                                                <th>isactive</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody id="builddata">
+                                            <tr>
+                                                <td colspan="10" style="text-align:left">No Build found</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 CoolAdmin. All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+
+{% endblock %}
+{% block extrajs %}
+{% endblock %}
