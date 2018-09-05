@@ -1,25 +1,29 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
 
 def agentsdetail(request):
     template_name='agentsdetail.html'
-    return render(request, template_name,{})
+    agentsdetails=AgentsDetail.objects.all()
+    return render(request, template_name,{'agentsdetail':agentsdetails})
 
 
 def machinedetail(request):
     template_name='machinedetail.html'
-    return render(request, template_name,{})
+    machinedetails = MachineDetail.objects.filter(isactive=True)
+    return render(request, template_name,{'machinedetail':machinedetails})
 
 
 def sanitymaster(request):
     template_name='sanitymaster.html'
-    return render(request, template_name,{})
+    sanitymasters=SanityMaster.objects.filter(IsActive=True)
+    return render(request, template_name,{'sanitymaster':sanitymasters})
 
 
 def serverdetail(request):
     template_name='serverdetail.html'
-    return render(request, template_name,{})
+    serverdetails=ServerDetail.objects.filter(isactive=True)
+    return render(request, template_name,{'serverdetail':serverdetails})

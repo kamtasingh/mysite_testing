@@ -27,10 +27,20 @@
                                             </tr>
                                         </thead>
                                         <tbody id="builddata">
+                                        {% for s in sanitymaster %}
+                                        <td>{{ s.Serialnumber }}</td>
+                                        <td>{{ s.Platform }}</td>
+                                        <td>{{ s.BuildID }}</td>
+                                        <td>{{ s.BuildName }}</td>
+                                        <td>{{ s.StatusType }}</td>
+                                        <th>{{ s.IsActive }}</th>
+
+                                        {% empty %}
                                             <tr>
                                                 <td colspan="5" style="text-align:left">No Build found</td>
 
                                             </tr>
+                                        {% endfor %}
 
                                         </tbody>
                                     </table>

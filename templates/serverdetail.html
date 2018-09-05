@@ -31,10 +31,26 @@
                                             </tr>
                                         </thead>
                                         <tbody id="builddata">
+                                        {% for s in serverdetail %}
+
+                                        <tr>
+                                                <td>{{ s.v4_ip }}</td>
+                                                <td>{{ s.status }}</td>
+                                                <td>{{ s.machine_type }}</td>
+                                                <td>{{ s.operating_system }}</td>
+                                                <td>{{ s.fqdn }}</td>
+                                                <td>{{ s.ram }}</td>
+                                                <td>{{ s.location }}</td>
+                                                <td>{{ s.owner_team }}</td>
+                                                <td>{{ s.owner_person }}</td>
+                                                <td>{{ s.isactive }}</td>
+                                        </tr>
+
+                                        {% empty %}
                                             <tr>
                                                 <td colspan="10" style="text-align:left">No Build found</td>
-
                                             </tr>
+                                        {% endfor %}
 
                                         </tbody>
                                     </table>

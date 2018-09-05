@@ -1626,6 +1626,7 @@ function setHeader(xhr) {
         xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8000');
       }
 
+
 (function ($) {
   $("select#platform").change(function(){
 
@@ -2061,3 +2062,40 @@ var ischecked= $(obj).is(':checked');
     }
 
 }
+
+(function ($) {
+  $("#refresh").click(function(){
+    alert('You clicked on refresh button');
+  $.ajax({
+          url: 'http://10.112.86.90/api/agent',
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {refresh: $(this).val()},
+          beforeSend: function() {
+            //$(".fa-spin").show();
+            },
+          success: function(data) {
+          //$(".fa-spin").hide();
+          console.log(data);
+          var options = '';
+          var statuscode = '';
+          for (var i = 0; i < data.length; i++) {
+           options += '<tr><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
+
+           }
+         if (data.length == 0){
+          options += '<tr><td colspan="4" style="text-align:left">No Agent found for this platform </td></tr>'
+         }
+          $("tbody#agentdata").html(options);
+
+          },
+          error: function() { alert('Something wrong happen. Please try again!'); }
+        });
+
+
+
+
+      });
+  })(jQuery);
+
