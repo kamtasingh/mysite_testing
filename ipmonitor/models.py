@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User,Group
 from django.db import models
+import os
 
 
 # Create your models here.
@@ -48,6 +49,11 @@ class ServerDetail(models.Model):
     isactive=models.BooleanField(default=True)
     def __unicode__(self):
         return str(self.v4_ip)
+    def status(self):
+        data = os.system("ping -c 4 " + self.v4_ip)
+        if data == 0:
+            return '<img src="/static/admin/img/icon-yes.svg" alt="True">'
+        return '<img src="/static/admin/img/icon-no.svg" alt="True">'
 
 class SanityMaster(models.Model):
     Serialnumber = models.IntegerField(null=True,blank=True)
