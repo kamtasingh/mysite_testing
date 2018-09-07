@@ -2065,18 +2065,18 @@ var ischecked= $(obj).is(':checked');
 
 (function ($) {
   $("#refresh").click(function(){
-    alert('You clicked on refresh button');
+
   $.ajax({
           url: 'http://10.112.86.90/api/agent',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
-          data: {refresh: $(this).val()},
+          data: {platform: $("#platform").val()},
           beforeSend: function() {
-            //$(".fa-spin").show();
+            $(".fa-spin").show();
             },
           success: function(data) {
-          //$(".fa-spin").hide();
+          $(".fa-spin").hide();
           console.log(data);
           var options = '';
           var statuscode = '';
@@ -2098,4 +2098,5 @@ var ischecked= $(obj).is(':checked');
 
       });
   })(jQuery);
+
 
