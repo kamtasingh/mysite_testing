@@ -36,14 +36,14 @@
                                         <tr>
                                                 <td>{{ s.v4_ip }}</td>
                                                 <td>{{ s.status }}</td>
-                                                <td>{{ s.machine_type }}</td>
-                                                <td>{{ s.operating_system }}</td>
+                                                <td>{{ s.get_machine_type_display }}</td>
+                                                <td>{{ s.get_operating_system_display }}</td>
                                                 <td>{{ s.fqdn }}</td>
                                                 <td>{{ s.ram }}</td>
                                                 <td>{{ s.location }}</td>
                                                 <td>{{ s.owner_team }}</td>
                                                 <td>{{ s.owner_person }}</td>
-                                                <td>{{ s.isactive }}</td>
+                                                <td>{% if s.isactive %}<img src="/static/admin/img/icon-yes.svg" alt="True">{% else %}<img src="/static/admin/img/icon-no.svg" alt="True">{% endif %}</td>
                                         </tr>
 
                                         {% empty %}
