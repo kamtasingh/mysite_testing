@@ -35,7 +35,7 @@
 
                                         <tr>
                                                 <td>{{ s.v4_ip }}</td>
-                                                <td>{{ s.status }}</td>
+                                                <td>{{ s.status|safe }}</td>
                                                 <td>{{ s.get_machine_type_display }}</td>
                                                 <td>{{ s.get_operating_system_display }}</td>
                                                 <td>{% if s.fqdn %} {{ s.fqdn }} {% else %} -NA- {% endif %}</td>
