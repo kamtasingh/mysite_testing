@@ -25,5 +25,5 @@ def sanitymaster(request):
 
 def serverdetail(request):
     template_name='serverdetail.html'
-    serverdetails=ServerDetail.objects.filter(isactive=True)
+    serverdetails=ServerDetail.objects.all()
     return render(request, template_name,{'serverdetail':serverdetails})
