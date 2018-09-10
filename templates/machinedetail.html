@@ -40,18 +40,18 @@
 
                                                 <td>{{ m.v4_ip }}</td>
                                                 <td>{{ m.status }}</td>
-                                                <td>{{ m.machine_type }}</td>
-                                                <td>{{ m.operating_system }}</td>
+                                                <td>{{ m.get_machine_type_display }}</td>
+                                                <td>{{ m.get_operating_system_display }}</td>
                                                 <td>{{ m.hostName }}</td>
-                                                <td>{{ m.ram }}</td>
+                                                <td>{{ m.ram }}&nbsp;GB</td>
                                                 <td>{{ m.symantic }}</td>
                                                 <td>{{ m.domain }}</td>
                                                 <td>{{ m.location }}</td>
-                                                <td>{{ m.cabinet_esxi }}</td>
+                                                <td>{{ m.cabinet_esxi|default:"-NA-" }}</td>
                                                 <td>{{ m.esxi_server_id }}</td>
                                                 <td>{{ m.owner_team }}</td>
                                                 <td>{{ m.owner_person }}</td>
-                                                <td>{{ m.isactive }}</td>
+                                                <td>{% if m.isactive %}<img src="/static/admin/img/icon-yes.svg" alt="True">{% else %}<img src="/static/admin/img/icon-no.svg" alt="True">{% endif %}</td>
 
                                             </tr>
                                         {% empty %}
