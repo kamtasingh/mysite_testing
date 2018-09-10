@@ -1679,7 +1679,7 @@ function setHeader(xhr) {
           var options = '';
           var statuscode = '';
           for (var i = 0; i < data.length; i++) {
-           options += '<tr><td>' +  + '</td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
+           options += '<tr><td></td><td>' +  + '</td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
 
            }
          if (data.length == 0){
@@ -2083,11 +2083,11 @@ if($("#platform").val())
           var options = '';
           var statuscode = '';
           for (var i = 0; i < data.length; i++) {
-           options += '<tr><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
+           options += '<tr><td></td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
 
            }
          if (data.length == 0){
-          options += '<tr><td colspan="4" style="text-align:left">No Agent found for this platform </td></tr>'
+          options += '<tr><td colspan="5" style="text-align:left">No Agent found for this platform </td></tr>'
          }
           $("tbody#agentdata").html(options);
 
