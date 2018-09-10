@@ -1679,7 +1679,7 @@ function setHeader(xhr) {
           var options = '';
           var statuscode = '';
           for (var i = 0; i < data.length; i++) {
-           options += '<tr><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
+           options += '<tr><td>' +  + '</td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
 
            }
          if (data.length == 0){
@@ -2066,6 +2066,8 @@ var ischecked= $(obj).is(':checked');
 (function ($) {
   $("#refresh").click(function(){
 
+if($("#platform").val())
+{
   $.ajax({
           url: 'http://10.112.86.90/api/agent',
           type: 'GET',
@@ -2092,10 +2094,10 @@ var ischecked= $(obj).is(':checked');
           },
           error: function() { alert('Something wrong happen. Please try again!'); }
         });
-
-
-
-
+}
+else{
+alert("Please choose platform to view agent Details");
+}
       });
   })(jQuery);
 
