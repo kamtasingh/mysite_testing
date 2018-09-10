@@ -1679,7 +1679,7 @@ function setHeader(xhr) {
           var options = '';
           var statuscode = '';
           for (var i = 0; i < data.length; i++) {
-           options += '<tr><td></td><td>' +  + '</td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
+           options += '<tr><td>'+getbubble(data[i].AgentRunningStatus,data[i].agentIP)+'</td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
 
            }
          if (data.length == 0){
@@ -2063,6 +2063,21 @@ var ischecked= $(obj).is(':checked');
 
 }
 
+function getbubble(data,ip){
+circle="";
+if(is_staff){
+if(data == 1)
+{
+circle='<a href="#"  onClick="statusAction('+"'"+ip+"'"+');"><i id="'+ip+'" class="fa fa-circle" style="color:green"></i></a>';
+}
+else
+{
+circle='<a href="#"  onClick="statusAction('+"'"+ip+"'"+');"><i id="'+ip+'" class="fa fa-circle" style="color:black"></i></a>';
+}
+}
+return circle;
+}
+
 (function ($) {
   $("#refresh").click(function(){
 
@@ -2083,7 +2098,8 @@ if($("#platform").val())
           var options = '';
           var statuscode = '';
           for (var i = 0; i < data.length; i++) {
-           options += '<tr><td></td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
+
+           options += '<tr><td>'+getbubble(data[i].AgentRunningStatus,data[i].agentIP)+'</td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
 
            }
          if (data.length == 0){
@@ -2100,5 +2116,36 @@ alert("Please choose platform to view agent Details");
 }
       });
   })(jQuery);
+
+
+
+
+function statusAction(ip){
+    if(is_staff == "False"){
+    alert("You have not permission to modify machine status.");
+    return;
+    }
+    if (confirm("Do you want to reset machine status.")) {
+    obj=document.getElementById(ip);
+    obj.style.color= 'black';
+    obj.parentNode.onclick = null;
+    $.ajax({
+          url: 'http://10.112.86.90/api/status',
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {ip: ip, platform:$("#platform").val()},
+          success: function(data) {
+
+          alert("Request has been send");
+
+          },
+          error: function() { alert('Something wrong happen. Please try again!'); }
+        });
+
+    }
+  }
+
+
 
 

@@ -149,5 +149,8 @@
 {% endblock %}
 {% block extrajs %}
 
-    <script src="{% static 'vendor/chartjs/Chart.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/chartjs/Chart.bundle.min.js' %}"></script>
+<script>
+var is_staff= "{{ user.is_staff }}";
+</script>
 {% endblock %}
