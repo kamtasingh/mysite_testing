@@ -31,6 +31,12 @@ class MachineDetail(models.Model):
     isactive=models.BooleanField(default=True)
     def __unicode__(self):
         return str(self.v4_ip)
+    def status(self):
+        data = os.system("ping -c 4 " + self.v4_ip)
+        if data == 0:
+            return '<img src="/static/admin/img/icon-yes.svg" alt="True">'
+        return '<img src="/static/admin/img/icon-no.svg" alt="True">'
+
 
 
 class ServerDetail(models.Model):

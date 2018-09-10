@@ -39,7 +39,7 @@
                                         <tr>
 
                                                 <td>{{ m.v4_ip }}</td>
-                                                <td>{{ m.status }}</td>
+                                                <td>{{ m.status|safe }}</td>
                                                 <td>{{ m.get_machine_type_display }}</td>
                                                 <td>{{ m.get_operating_system_display }}</td>
                                                 <td>{{ m.hostName|default:"-NA-" }}</td>
