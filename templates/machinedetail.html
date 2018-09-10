@@ -42,15 +42,15 @@
                                                 <td>{{ m.status }}</td>
                                                 <td>{{ m.get_machine_type_display }}</td>
                                                 <td>{{ m.get_operating_system_display }}</td>
-                                                <td>{{ m.hostName }}</td>
-                                                <td>{{ m.ram }}&nbsp;GB</td>
-                                                <td>{{ m.symantic }}</td>
-                                                <td>{{ m.domain }}</td>
-                                                <td>{{ m.location }}</td>
+                                                <td>{{ m.hostName|default:"-NA-" }} }}</td>
+                                                <td>{% if m.ram %} {{ m.ram }}&nbsp;GB {% else %} {{ m.ram }} {% endif %}</td>
+                                                <td>{{ m.symantic|default:"-NA-" }} }}</td>
+                                                <td>{{ m.domain|default:"-NA-" }} }}</td>
+                                                <td>{{ m.location|default:"-NA-" }} }}</td>
                                                 <td>{{ m.cabinet_esxi|default:"-NA-" }}</td>
-                                                <td>{{ m.esxi_server_id }}</td>
-                                                <td>{{ m.owner_team }}</td>
-                                                <td>{{ m.owner_person }}</td>
+                                                <td>{{ m.esxi_server_id|default:"-NA-" }} }}</td>
+                                                <td>{{ m.owner_team|default:"-NA-" }} }}</td>
+                                                <td>{{ m.owner_person|default:"-NA-" }} }}</td>
                                                 <td>{% if m.isactive %}<img src="/static/admin/img/icon-yes.svg" alt="True">{% else %}<img src="/static/admin/img/icon-no.svg" alt="True">{% endif %}</td>
 
                                             </tr>
