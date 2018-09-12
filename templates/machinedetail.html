@@ -17,49 +17,24 @@
                                         <thead>
                                             <tr>
 
-                                                <th>v4_ip</th>
-                                                <th>status</th>
-                                                <th>machine_type</th>
-                                                <th>operating_system</th>
-                                                <th>hostName</th>
-                                                <th>ram</th>
-                                                <th>symantic</th>
-                                                <th>domain</th>
-                                                <th>location</th>
-                                                <th>cabinet_esxi</th>
-                                                <th>esxi_server_id</th>
-                                                <th>owner_team</th>
-                                                <th>owner_person</th>
-                                                <th>isactive</th>
+                                                <th>SerialNo</th>
+                                                <th>WarrantyStatus</th>
+                                                <th>Status</th>
+                                                <th>validationStatus</th>
+                                                <th>RAM</th>
+                                                <th>Description</th>
+                                                <th>OwnerPerson</th>
+                                                <th>Physicallocation</th>
+                                                <th>IP</th>
+                                                <th>ProvidedBy</th>
+                                                <th>HostName</th>
 
                                             </tr>
                                         </thead>
                                         <tbody id="builddata">
-                                        {% for m in machinedetail %}
-                                        <tr>
-
-                                                <td>{{ m.v4_ip }}</td>
-                                                <td>{{ m.status|safe }}</td>
-                                                <td>{{ m.get_machine_type_display }}</td>
-                                                <td>{{ m.get_operating_system_display }}</td>
-                                                <td>{{ m.hostName|default:"-NA-" }}</td>
-                                                <td>{% if m.ram %} {{ m.ram }}&nbsp;GB {% else %} {{ m.ram }} {% endif %}</td>
-                                                <td>{{ m.symantic|default:"-NA-" }} </td>
-                                                <td>{{ m.domain|default:"-NA-" }} </td>
-                                                <td>{{ m.location|default:"-NA-" }} </td>
-                                                <td>{{ m.cabinet_esxi|default:"-NA-" }}</td>
-                                                <td>{{ m.esxi_server_id|default:"-NA-" }} </td>
-                                                <td>{{ m.owner_team|default:"-NA-" }} </td>
-                                                <td>{{ m.owner_person|default:"-NA-" }} </td>
-                                                <td>{% if m.isactive %}<img src="/static/admin/img/icon-yes.svg" alt="True">{% else %}<img src="/static/admin/img/icon-no.svg" alt="True">{% endif %}</td>
-
-                                            </tr>
-                                        {% empty %}
                                             <tr>
-                                                <td colspan="14" style="text-align:left">No Build found</td>
-
+                                                <td colspan="11" style="text-align:left">No Machine found</td>
                                             </tr>
-                                        {% endfor %}
 
                                         </tbody>
                                     </table>
@@ -85,5 +60,38 @@
 {% endblock %}
 {% block extrajs %}
 
+    <script>
 
+serverDetail();
+
+function serverDetail(){
+$.ajax({
+          url: 'http://10.112.86.90/api/Inventory/GetDesktops',
+          type: 'GET',
+          data: {email: "{{ user.email }}", is_staff : "{{ user.is_staff }}" },
+          contentType:'application/json',
+          dataType: 'json',
+          success: function(userdata) {
+          console.log(userdata);
+
+          var options = '';
+
+          for (var i = 0; i < data.length; i++) {
+           options += '<tr><td>' + data[i].SerialNo + '</td><td>'+ data[i].WarrantyStatus +'</td><td>'+ data[i].Status +'</td><td>'+ data[i].validationStatus +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].Description + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].IP + '</td><td>'+ data[i].ProvidedBy + '</td><td>'+ data[i].HostName + '</td></tr>';
+
+           }
+         if (data.length == 0){
+          options += '<tr><td colspan="11" style="text-align:left">No Machines Found </td></tr>'
+         }
+          $("tbody#builddata").html(options);
+
+
+          },
+          error: function() { alert('Something wrong happen, Please try again!'); }
+        });
+}
+
+
+
+    </script>
 {% endblock %}

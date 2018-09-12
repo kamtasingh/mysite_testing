@@ -17,40 +17,22 @@
                                         <thead>
                                             <tr>
 
-                                                <th>V4 IP</th>
-                                                <th>STATUS</th>
-                                                <th>MACHINE TYPE</th>
-                                                <th>OPERATING SYSTEM</th>
-                                                <th>FQDN</th>
-                                                <th> RAM </th>
-                                                <th>LOCATION</th>
-                                                <th>OWNER TEAM</th>
-                                                <th>OWNER PERSON</th>
-                                                <th>IS ACTIVE</th>
+                                                <th>SerialNo</th>
+                                                <th>WarrantyStatus</th>
+                                                <th>Status</th>
+                                                <th>validationStatus</th>
+                                                <th>RAM</th>
+                                                <th>Description</th>
+                                                <th>OwnerPerson</th>
+                                                <th>Physicallocation</th>
+                                                <th>IP</th>
 
                                             </tr>
                                         </thead>
                                         <tbody id="builddata">
-                                        {% for s in serverdetail %}
-
-                                        <tr>
-                                                <td>{{ s.v4_ip }}</td>
-                                                <td>{{ s.status|safe }}</td>
-                                                <td>{{ s.get_machine_type_display }}</td>
-                                                <td>{{ s.get_operating_system_display }}</td>
-                                                <td>{% if s.fqdn %} {{ s.fqdn }} {% else %} -NA- {% endif %}</td>
-                                                <td>{% if m.ram %} {{ m.ram }}&nbsp;GB {% else %} {{ m.ram }} {% endif %}</td>
-                                                <td>{{ s.location }}</td>
-                                                <td>{{ s.owner_team }}</td>
-                                                <td>{{ s.owner_person }}</td>
-                                                <td>{% if s.isactive %}<img src="/static/admin/img/icon-yes.svg" alt="True">{% else %}<img src="/static/admin/img/icon-no.svg" alt="True">{% endif %}</td>
-                                        </tr>
-
-                                        {% empty %}
                                             <tr>
-                                                <td colspan="10" style="text-align:left">No Build found</td>
+                                                <td colspan="9" style="text-align:left">No Server found</td>
                                             </tr>
-                                        {% endfor %}
 
                                         </tbody>
                                     </table>
@@ -75,4 +57,39 @@
 
 {% endblock %}
 {% block extrajs %}
+
+    <script>
+
+serverDetail();
+
+function serverDetail(){
+$.ajax({
+          url: 'http://10.112.86.90/api/Inventory/GetServers',
+          type: 'GET',
+          data: {email: "{{ user.email }}", is_staff : "{{ user.is_staff }}" },
+          contentType:'application/json',
+          dataType: 'json',
+          success: function(userdata) {
+          console.log(userdata);
+
+          var options = '';
+
+          for (var i = 0; i < data.length; i++) {
+           options += '<tr><td>' + data[i].SerialNo + '</td><td>'+ data[i].WarrantyStatus +'</td><td>'+ data[i].Status +'</td><td>'+ data[i].validationStatus +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].Description + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].IP + '</td></tr>';
+
+           }
+         if (data.length == 0){
+          options += '<tr><td colspan="9" style="text-align:left">No Servers Found </td></tr>'
+         }
+          $("tbody#builddata").html(options);
+
+
+          },
+          error: function() { alert('Something wrong happen, Please try again!'); }
+        });
+}
+
+
+
+    </script>
 {% endblock %}

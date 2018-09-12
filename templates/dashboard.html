@@ -131,38 +131,63 @@
                         <br>
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="au-card recent-report">
+                               <div class="au-card chart-percent-card">
                                     <div class="au-card-inner">
                                         <h3 class="title-2">recent reports</h3>
-                                        <div class="chart-info">
-                                            <div class="chart-info__left">
-                                                <div class="chart-note">
-                                                    <span class="dot dot--blue"></span>
-                                                    <span>Testcases</span>
-                                                </div>
-                                                <div class="chart-note mr-0">
-                                                    <span class="dot dot--green"></span>
-                                                    <span>Build</span>
-                                                </div>
-                                            </div>
-                                            <div class="chart-info__right">
-                                                <div class="chart-statis">
-                                                    <span class="index incre">
-                                                        <i class="zmdi zmdi-long-arrow-up"></i>25%</span>
-                                                    <span class="label">Testcaes</span>
-                                                </div>
-                                                <div class="chart-statis mr-0">
-                                                    <span class="index decre">
-                                                        <i class="zmdi zmdi-long-arrow-down"></i>10%</span>
-                                                    <span class="label">Build</span>
+                                        <div class="row no-gutters">
+                                            <div class="col-xl-6">
+                                                <div class="chart-note-wrap">
+                                                    <div class="chart-note mr-0 d-block">
+                                                        <span class="dot dot--blue"></span>
+                                                        <span>Machine</span>
+                                                    </div>
+                                                    <div class="chart-note mr-0 d-block">
+                                                        <span class="dot dot--red"></span>
+                                                        <span>Server</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="recent-report__chart">
-                                            <canvas id="recent-rep-chart"></canvas>
+                                            <div class="col-xl-6">
+                                                <div class="percent-chart">
+                                                    <canvas id="percent-chart1"></canvas>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!--<div class="au-card recent-report">-->
+                                    <!--<div class="au-card-inner">-->
+                                        <!--<h3 class="title-2">recent reports</h3>-->
+                                        <!--<div class="chart-info">-->
+
+                                            <!--<div class="chart-info__left">-->
+                                                <!--<div class="chart-note-wrap">-->
+                                                    <!--<span class="dot dot&#45;&#45;blue"></span>-->
+                                                    <!--<span>Machine</span>-->
+                                                <!--</div>-->
+                                                <!--<div class="chart-note-wrap">-->
+                                                    <!--<span class="dot dot&#45;&#45;green"></span>-->
+                                                    <!--<span>Server</span>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--&lt;!&ndash;<div class="chart-info__right">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<div class="chart-statis">&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<span class="index incre">&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<i class="zmdi zmdi-long-arrow-up"></i>25%</span>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<span class="label">Machine</span>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<div class="chart-statis mr-0">&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<span class="index decre">&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<i class="zmdi zmdi-long-arrow-down"></i>10%</span>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<span class="label">Server</span>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                        <!--</div>-->
+                                        <!--<div class="percent-chart">-->
+                                            <!--<canvas id="percent-chart1"></canvas>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                             </div>
                             <div class="col-lg-6">
                                 <div class="au-card chart-percent-card">
@@ -173,11 +198,11 @@
                                                 <div class="chart-note-wrap">
                                                     <div class="chart-note mr-0 d-block">
                                                         <span class="dot dot--blue"></span>
-                                                        <span>Testcases</span>
+                                                        <span>Machine</span>
                                                     </div>
                                                     <div class="chart-note mr-0 d-block">
                                                         <span class="dot dot--red"></span>
-                                                        <span>Build</span>
+                                                        <span>Server</span>
                                                     </div>
                                                 </div>
                                             </div>
