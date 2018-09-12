@@ -2140,7 +2140,7 @@ function statusAction(ip){
     obj.style.color= 'black';
     obj.parentNode.onclick = null;
     $.ajax({
-          url: 'http://10.112.86.90/api/status',
+          url: 'http://10.112.86.90/api/agent/getagentreactivate',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -2172,14 +2172,14 @@ function statusAction(ip){
   $("#saveStatus").click(function(){
 
   data=[]
-    $(this).hide();
+  $(this).hide();
   $("#editStatus").show();
   $('.agentState').show();
   $(".dropdown").hide();
   $(".dropdown").each(function (){
-data.push([$(this).val().split("---")]);
+data.push($(this).val());
   });
- $.post('http://10.112.86.90/api/save', {dataobj: data }, function(data, status){
+ $.post('http://10.112.86.90/api/agents/getagentstateset', {dataobj: data }, function(data, status){
       alert("Agent Status has been submitted successfully.");
                     }, 'json');
         });

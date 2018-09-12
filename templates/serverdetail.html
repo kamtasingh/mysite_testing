@@ -18,14 +18,14 @@
                                             <tr>
 
                                                 <th>SerialNo</th>
+                                                <th>IP</th>
                                                 <th>WarrantyStatus</th>
                                                 <th>Status</th>
                                                 <th>validationStatus</th>
                                                 <th>RAM</th>
-                                                <th>Description</th>
                                                 <th>OwnerPerson</th>
                                                 <th>Physicallocation</th>
-                                                <th>IP</th>
+                                                <th>Description</th>
 
                                             </tr>
                                         </thead>
@@ -69,15 +69,15 @@ $.ajax({
           data: {email: "{{ user.email }}", is_staff : "{{ user.is_staff }}" },
           contentType:'application/json',
           dataType: 'json',
-          success: function(userdata) {
-          console.log(userdata);
+          success: function(data) {
 
           var options = '';
 
           for (var i = 0; i < data.length; i++) {
-           options += '<tr><td>' + data[i].SerialNo + '</td><td>'+ data[i].WarrantyStatus +'</td><td>'+ data[i].Status +'</td><td>'+ data[i].validationStatus +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].Description + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].IP + '</td></tr>';
 
-           }
+           options += '<tr><td>' + data[i].SerialNo + '</td><td>'+ data[i].IP + '</td><td>'+ data[i].WarrantyStatus +'</td><td>'+ data[i].Status +'</td><td>'+ data[i].validationStatus +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].Description + '</td></tr>';
+}
+
          if (data.length == 0){
           options += '<tr><td colspan="9" style="text-align:left">No Servers Found </td></tr>'
          }
