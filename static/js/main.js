@@ -360,8 +360,8 @@
             }
           ],
           labels: [
-            'Testcases',
-            'Build'
+            'Machine',
+            'Server'
           ]
         },
         options: {
@@ -1638,6 +1638,8 @@ function setHeader(xhr) {
           data: {platform: $(this).val()},
           beforeSend: function() {
             $(".fa-spin").show();
+            $("#editStatus").show();
+            $("#saveStatus").hide();
             },
           success: function(data) {
           $(".fa-spin").hide();
@@ -1679,7 +1681,7 @@ function setHeader(xhr) {
           var options = '';
           var statuscode = '';
           for (var i = 0; i < data.length; i++) {
-           options += '<tr><td>'+getbubble(data[i].AgentRunningStatus,data[i].agentIP)+'</td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
+           options += '<tr><td>'+getbubble(data[i].AgentRunningStatus,data[i].agentIP)+'</td><td>' + data[i].agentIP + '</td><td><span class="agentState">'+ data[i].agentState+'</span>'+ getdropdown(data[i].agentIP) +'</span></td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
 
            }
          if (data.length == 0){
@@ -2078,6 +2080,12 @@ circle='<a href="#"  onClick="statusAction('+"'"+ip+"'"+');"><i id="'+ip+'" clas
 return circle;
 }
 
+function getdropdown(ip){
+
+dropdown='<select class="dropdown" style="display:none"><option value="Idle---'+ip+'">Idle</option><option value="SANITY EXECUTION IN PROGRESS---'+ip+'">SANITY EXECUTION IN PROGRESS</option></select>';
+return dropdown;
+}
+
 (function ($) {
   $("#refresh").click(function(){
 
@@ -2091,6 +2099,8 @@ if($("#platform").val())
           data: {platform: $("#platform").val()},
           beforeSend: function() {
             $(".fa-spin").show();
+            $("#editStatus").show();
+            $("#saveStatus").hide();
             },
           success: function(data) {
           $(".fa-spin").hide();
@@ -2099,7 +2109,7 @@ if($("#platform").val())
           var statuscode = '';
           for (var i = 0; i < data.length; i++) {
 
-           options += '<tr><td>'+getbubble(data[i].AgentRunningStatus,data[i].agentIP)+'</td><td>' + data[i].agentIP + '</td><td>'+ data[i].agentState +'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
+           options += '<tr><td>'+getbubble(data[i].AgentRunningStatus,data[i].agentIP)+'</td><td>' + data[i].agentIP + '</td><td><span class="agentState">'+ data[i].agentState +'</span>'+getdropdown(data[i].agentIP)+'</td><td>'+ data[i].buildName +'</td><td>'+ data[i].buildState +'</td></tr>';
 
            }
          if (data.length == 0){
@@ -2147,5 +2157,86 @@ function statusAction(ip){
   }
 
 
+(function ($) {
+  $("#editStatus").click(function(){
+  $(this).hide();
+  $('.agentState').hide();
+  $("#saveStatus").show();
+  $(".dropdown").show();
+
+        });
+  })(jQuery);
 
 
+(function ($) {
+  $("#saveStatus").click(function(){
+
+  data=[]
+    $(this).hide();
+  $("#editStatus").show();
+  $('.agentState').show();
+  $(".dropdown").hide();
+  $(".dropdown").each(function (){
+data.push([$(this).val().split("---")]);
+  });
+ $.post('http://10.112.86.90/api/save', {dataobj: data }, function(data, status){
+      alert("Agent Status has been submitted successfully.");
+                    }, 'json');
+        });
+  })(jQuery);
+
+
+
+  var ctx = document.getElementById("percent-chart1");
+    if (ctx) {
+      ctx.height = 280;
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [
+            {
+              label: "My First dataset",
+              data: [60, 40],
+              backgroundColor: [
+                '#00b5e9',
+                '#fa4251'
+              ],
+              hoverBackgroundColor: [
+                '#00b5e9',
+                '#fa4251'
+              ],
+              borderWidth: [
+                0, 0
+              ],
+              hoverBorderColor: [
+                'transparent',
+                'transparent'
+              ]
+            }
+          ],
+          labels: [
+            'Machine',
+            'Server'
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          cutoutPercentage: 55,
+          animation: {
+            animateScale: true,
+            animateRotate: true
+          },
+          legend: {
+            display: false
+          },
+          tooltips: {
+            titleFontFamily: "Poppins",
+            xPadding: 15,
+            yPadding: 10,
+            caretPadding: 0,
+            bodyFontSize: 16
+          }
+        }
+      });
+    }
