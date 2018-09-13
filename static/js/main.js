@@ -1638,8 +1638,15 @@ function setHeader(xhr) {
           data: {platform: $(this).val()},
           beforeSend: function() {
             $(".fa-spin").show();
-            $("#editStatus").show();
-            $("#saveStatus").hide();
+            if($("#platform").val())
+            {
+                $("#editStatus").show();
+                $("#saveStatus").hide();
+            }
+            else{
+                $("#editStatus").hide();
+                $("#saveStatus").hide();
+            }
             },
           success: function(data) {
           $(".fa-spin").hide();
