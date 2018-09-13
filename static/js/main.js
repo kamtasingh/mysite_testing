@@ -1869,7 +1869,7 @@ function setHeader(xhr) {
   alert("Please Choose TestCases before testcase submission.");
   return;
   }
-  $.post('http://10.112.86.90/api/build', {application: application,callmanager:callmanager,language:language,agentip:agentip,agentconfig:agentconfig,agentdb:agentdb,testcases:checkeddata }, function(data, status){
+  $.get('http://10.112.86.90/api/build/getruntc', {application: application,callmanager:callmanager,language:language,agentip:agentip,agentconfig:agentconfig,agentdb:agentdb,testcases:checkeddata }, function(data, status){
 
                         //alert(data);
                         alert("Test Cases has been submitted successfully");
@@ -2171,15 +2171,16 @@ function statusAction(ip){
 (function ($) {
   $("#saveStatus").click(function(){
 
-  data=[]
+  data=""
   $(this).hide();
   $("#editStatus").show();
   $('.agentState').show();
   $(".dropdown").hide();
   $(".dropdown").each(function (){
-data.push($(this).val());
+//data.push($(this).val());
+data+=$(this).val()+";";
   });
- $.post('http://10.112.86.90/api/agents/getagentstateset', {dataobj: data }, function(data, status){
+ $.get('http://10.112.86.90/api/agent/getagentstateset', {dataobj: data }, function(data, status){
       alert("Agent Status has been submitted successfully.");
                     }, 'json');
         });
