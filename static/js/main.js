@@ -2265,7 +2265,6 @@ else if (data == 5)
 {
 circle='<i class="fa fa-circle" style="color:black"></i>';
 }
-}
 return circle;
 }
 
