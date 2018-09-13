@@ -77,7 +77,7 @@ $.ajax({
           var options = '';
 
           for (var i = 0; i < data.length; i++) {
-           options += '<tr><td>' + data[i].SerialNo + '</td><td>'+ data[i].IP + '</td><td>'+ data[i].HostName + '</td><td>'+ data[i].WarrantyStatus +'</td><td>'+ data[i].Status +'</td><td>'+ data[i].validationStatus +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].ProvidedBy + '</td><td>'+ data[i].Description + '</td></tr>';
+           options += '<tr><td>' + data[i].SerialNo + '</td><td>'+ data[i].IP + '</td><td>'+ data[i].HostName + '</td><td>'+ getcolorbubble(data[i].WarrantyStatus) +'</td><td>'+ getcolorbubble(data[i].Status) +'</td><td>'+ getcolorbubble(data[i].validationStatus) +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].ProvidedBy + '</td><td>'+ data[i].Description + '</td></tr>';
 
            }
          if (data.length == 0){

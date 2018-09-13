@@ -2241,3 +2241,31 @@ data+=$(this).val()+";";
         }
       });
     }
+
+
+function getcolorbubble(data){
+circle="";
+if(data == 1)
+{
+circle='<i class="fa fa-circle" style="color:green"></i>';
+}
+else if (data == 2)
+{
+circle='<i class="fa fa-circle" style="color:red"></i>';
+}
+else if (data == 3)
+{
+circle='<i class="fa fa-circle" style="color:blue"></i>';
+}
+else if (data == 4)
+{
+circle='<i class="fa fa-circle" style="color:orange"></i>';
+}
+else if (data == 5)
+{
+circle='<i class="fa fa-circle" style="color:black"></i>';
+}
+}
+return circle;
+}
+
