@@ -130,83 +130,17 @@
 <br>
                         <br>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-md-12">
                                <div class="au-card chart-percent-card">
                                     <div class="au-card-inner">
-                                        <h3 class="title-2">machine's reports</h3>
+                                        <h3 class="title-2 tm-b-5">Machines Reports</h3>
                                         <div class="row no-gutters">
-                                            <div class="col-xl-6">
-                                                <div class="chart-note-wrap">
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--blue"></span>
-                                                        <span>Active Machines</span>
-                                                    </div>
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--red"></span>
-                                                        <span>Inactive Machines</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
+                                            <div class="col-xs-6">
                                                 <div class="percent-chart">
                                                     <canvas id="percent-chart1"></canvas>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--<div class="au-card recent-report">-->
-                                    <!--<div class="au-card-inner">-->
-                                        <!--<h3 class="title-2">recent reports</h3>-->
-                                        <!--<div class="chart-info">-->
-
-                                            <!--<div class="chart-info__left">-->
-                                                <!--<div class="chart-note-wrap">-->
-                                                    <!--<span class="dot dot&#45;&#45;blue"></span>-->
-                                                    <!--<span>Machine</span>-->
-                                                <!--</div>-->
-                                                <!--<div class="chart-note-wrap">-->
-                                                    <!--<span class="dot dot&#45;&#45;green"></span>-->
-                                                    <!--<span>Server</span>-->
-                                                <!--</div>-->
-                                            <!--</div>-->
-                                            <!--&lt;!&ndash;<div class="chart-info__right">&ndash;&gt;-->
-                                                <!--&lt;!&ndash;<div class="chart-statis">&ndash;&gt;-->
-                                                    <!--&lt;!&ndash;<span class="index incre">&ndash;&gt;-->
-                                                        <!--&lt;!&ndash;<i class="zmdi zmdi-long-arrow-up"></i>25%</span>&ndash;&gt;-->
-                                                    <!--&lt;!&ndash;<span class="label">Machine</span>&ndash;&gt;-->
-                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                                <!--&lt;!&ndash;<div class="chart-statis mr-0">&ndash;&gt;-->
-                                                    <!--&lt;!&ndash;<span class="index decre">&ndash;&gt;-->
-                                                        <!--&lt;!&ndash;<i class="zmdi zmdi-long-arrow-down"></i>10%</span>&ndash;&gt;-->
-                                                    <!--&lt;!&ndash;<span class="label">Server</span>&ndash;&gt;-->
-                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                        <!--</div>-->
-                                        <!--<div class="percent-chart">-->
-                                            <!--<canvas id="percent-chart1"></canvas>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="au-card chart-percent-card">
-                                    <div class="au-card-inner">
-                                        <h3 class="title-2 tm-b-5">server's report</h3>
-                                        <div class="row no-gutters">
-                                            <div class="col-xl-6">
-                                                <div class="chart-note-wrap">
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--blue"></span>
-                                                        <span>Active Servers</span>
-                                                    </div>
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--red"></span>
-                                                        <span>Inactive Server</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
+                                                <div class="col-xs-6">
                                                 <div class="percent-chart">
                                                     <canvas id="percent-chart"></canvas>
                                                 </div>
@@ -214,8 +148,32 @@
                                         </div>
                                     </div>
                                 </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="au-card chart-percent-card">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2 tm-b-5">Servers Reports</h3>
+                                        <div class="row no-gutters">
+                                            <div class="col-xs-6">
+                                                <div class="percent-chart">
+                                                    <canvas id="percent-chart2"></canvas>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="percent-chart">
+                                                    <canvas id="percent-chart3"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+
+
+
                         {% comment %}
                         <div class="row">
                             <div class="col-lg-9">
@@ -612,5 +570,272 @@
                     </div>
                 </div>
             </div>
+
+{% endblock %}
+{% block extrajs %}
+<script>
+
+
+try {
+    var ctx = document.getElementById("percent-chart3");
+    if (ctx) {
+      ctx.height = 220;
+      var myChart3 = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [
+            {
+              label: "My First dataset",
+              data: [0, 0, 0],
+              backgroundColor: [
+                'green',
+                'red',
+                'orange'
+              ],
+              hoverBackgroundColor: [
+                'green',
+                'red',
+                'orange'
+              ],
+              borderWidth: [
+                0, 0
+              ],
+              hoverBorderColor: [
+                'transparent',
+                'transparent',
+                'transparent'
+              ]
+            }
+          ],
+          labels: [
+            'Active',
+            'Expired',
+            'Validation About to expire'
+
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          cutoutPercentage: 55,
+          animation: {
+            animateScale: true,
+            animateRotate: true
+          },
+          legend: {
+            display: false
+          },
+          tooltips: {
+            titleFontFamily: "Poppins",
+            xPadding: 15,
+            yPadding: 10,
+            caretPadding: 0,
+            bodyFontSize: 16
+          }
+        }
+      });
+    }
+    } catch (error) {
+    console.log(error);
+  }
+
+
+try {
+
+    // Percent Chart 2
+    var ctx = document.getElementById("percent-chart2");
+    if (ctx) {
+      ctx.height = 220;
+      var myChart2 = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+
+          datasets: [
+            {
+              label: "My First dataset",
+              data: [0, 0, 0, 0, 0 ],
+              backgroundColor: [
+                "green",
+                "red",
+                "blue",
+                "orange",
+                "black"
+              ],
+              hoverBackgroundColor: [
+                "green",
+                "red",
+                "blue",
+                "orange",
+                "black"
+              ],
+              borderWidth: [
+                0, 0
+              ],
+              hoverBorderColor: [
+                'transparent',
+                'transparent',
+                'transparent',
+                'transparent',
+                'transparent'
+              ]
+            }
+          ],
+          labels: [
+            'Online',
+            'Offline',
+            'Not in Use',
+            'Working But Known Issue',
+            'Unknown'
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          cutoutPercentage: 55,
+          animation: {
+            animateScale: true,
+            animateRotate: true
+          },
+          legend: {
+            display: false
+          },
+          tooltips: {
+            titleFontFamily: "Poppins",
+            xPadding: 15,
+            yPadding: 10,
+            caretPadding: 0,
+            bodyFontSize: 16
+          }
+        }
+      });
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
+
+
+try {
+    var ctx = document.getElementById("percent-chart");
+    if (ctx) {
+      ctx.height = 220;
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [
+            {
+              label: "My First dataset",
+              data: [0, 0, 0],
+              backgroundColor: [
+                'green',
+                'red',
+                'orange'
+              ],
+              hoverBackgroundColor: [
+                'green',
+                'red',
+                'orange'
+              ],
+              borderWidth: [
+                0, 0
+              ],
+              hoverBorderColor: [
+                'transparent',
+                'transparent',
+                'transparent'
+              ]
+            }
+          ],
+          labels: [
+            'Active',
+            'Expired',
+            'Validation About to expire'
+
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          cutoutPercentage: 55,
+          animation: {
+            animateScale: true,
+            animateRotate: true
+          },
+          legend: {
+            display: false
+          },
+          tooltips: {
+            titleFontFamily: "Poppins",
+            xPadding: 15,
+            yPadding: 10,
+            caretPadding: 0,
+            bodyFontSize: 16
+          }
+        }
+      });
+    }
+    } catch (error) {
+    console.log(error);
+  }
+
+machineDetail();
+serverDetail();
+
+function machineDetail(){
+$.ajax({
+          url: 'http://10.112.86.90/api/Inventory/GetDesktopscount',
+          type: 'GET',
+          data: {email: "{{ user.email }}", is_staff : "{{ user.is_staff }}" },
+          contentType:'application/json',
+          dataType: 'json',
+          success: function(data) {
+          console.log(data);
+
+          myChart1.data.datasets[0].data[0] = data.Status[1];
+          myChart1.data.datasets[0].data[1] = data.Status[2];
+          myChart1.data.datasets[0].data[2] = data.Status[3];
+          myChart1.data.datasets[0].data[3] = data.Status[4];
+          myChart1.data.datasets[0].data[4] = data.Status[5];
+          myChart1.update();
+
+          myChart.data.datasets[0].data[0] = data.ValidationStatus[1];
+          myChart.data.datasets[0].data[1] = data.ValidationStatus[2];
+          myChart.data.datasets[0].data[2] = data.ValidationStatus[2];
+          myChart.update();
+
+          },
+          error: function() { alert('Something wrong happen, Please try again!'); }
+        });
+}
+
+
+function serverDetail(){
+$.ajax({
+          url: 'http://10.112.86.90/api/Inventory/GetServerscount',
+          type: 'GET',
+          data: {email: "{{ user.email }}", is_staff : "{{ user.is_staff }}" },
+          contentType:'application/json',
+          dataType: 'json',
+          success: function(data) {
+          console.log(data);
+
+          myChart2.data.datasets[0].data[0] = data.Status[1];
+          myChart2.data.datasets[0].data[1] = data.Status[2];
+          myChart2.data.datasets[0].data[2] = data.Status[3];
+          myChart2.data.datasets[0].data[3] = data.Status[4];
+          myChart2.data.datasets[0].data[4] = data.Status[5];
+          myChart2.update();
+
+          myChart3.data.datasets[0].data[0] = data.ValidationStatus[1];
+          myChart3.data.datasets[0].data[1] = data.ValidationStatus[2];
+          myChart3.data.datasets[0].data[2] = data.ValidationStatus[2];
+          myChart3.update();
+
+          },
+          error: function() { alert('Something wrong happen, Please try again!'); }
+        });
+}
+    </script>
+
 
 {% endblock %}
