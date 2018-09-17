@@ -1972,7 +1972,7 @@ return circle;
 
 function getdropdown(ip){
 
-dropdown='<select class="dropdown" style="display:none"><option value="Idle---'+ip+'">Idle</option><option value="SANITY EXECUTION IN PROGRESS---'+ip+'">SANITY EXECUTION IN PROGRESS</option></select>';
+dropdown='<select class="dropdown" style="display:none"><option value="Idle---'+ip+'">Idle</option><option value="BUILD DOWNLOADED---'+ip+'">BUILD DOWNLOADED</option><option value="BUILD DEPLOYED---'+ip+'">BUILD DEPLOYED</option><option value="SANITY EXECUTION IN PROGRESS---'+ip+'">SANITY EXECUTION IN PROGRESS</option><option value="EXECUTE SANITY---'+ip+'">EXECUTE SANITY</option><option value="NEW BUILD AVAILABLE---'+ip+'">NEW BUILD AVAILABLE</option><option value="DND---'+ip+'">DND</option></select>';
 return dropdown;
 }
 
