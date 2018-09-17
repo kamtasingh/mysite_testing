@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 from django.shortcuts import render
 from .models import *
-import requests
 import csv
 from django.http import StreamingHttpResponse
 
@@ -41,6 +40,7 @@ def serverdetail(request):
 
 
 def downloadmachinedetail(request):
+    import requests
     url = "http://10.112.86.90/api/Inventory/GetDesktops"
     data = {"email": request.user.email, "is_staff": request.user.is_staff}
     data = requests.get(url, params=data)
@@ -61,6 +61,7 @@ def downloadmachinedetail(request):
 
 
 def downloadserverdetail(request):
+    import requests
     url = "http://10.112.86.90/api/Inventory/GetServers"
     data = {"email": request.user.email, "is_staff": request.user.is_staff}
     data = requests.get(url, params=data)
