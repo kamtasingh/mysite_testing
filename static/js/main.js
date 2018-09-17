@@ -2058,20 +2058,26 @@ function statusAction(ip){
   })(jQuery);
 
 
+
+
 (function ($) {
   $("#saveStatus").click(function(){
 
   data=""
   $(this).hide();
   $("#editStatus").show();
-  $('.agentState').show();
-  $(".dropdown").hide();
   $(".dropdown").each(function (){
 //data.push($(this).val());
 data+=$(this).val()+";";
+$(this).closest("td").find('span').html($(this).val().split("---")[0]);
   });
+
+  $('.agentState').show();
+  $(".dropdown").hide();
  $.get('http://10.112.86.90/api/agent/getagentstateset', {dataobj: data }, function(data, status){
       alert("Agent Status has been submitted successfully.");
+      //window.location="/mysite/sanity/";
+
                     }, 'json');
         });
   })(jQuery);
