@@ -5,5 +5,7 @@ urlpatterns = [
     url(r'^machinedetail/$', machinedetail, name='machinedetail'),
     #url(r'^sanitymaster/$', sanitymaster, name='sanitymaster'),
     url(r'^serverdetail/$', serverdetail, name='serverdetails'),
+    url(r'^download/machinedetail/$', downloadmachinedetail, name='downloadmachinedetail'),
+    url(r'^download/serverdetail/$', downloadserverdetail, name='downloadserverdetails'),
 
 ]
