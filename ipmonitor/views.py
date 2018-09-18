@@ -66,9 +66,10 @@ def downloadserverdetail(request):
     data = {"email": request.user.email, "is_staff": request.user.is_staff}
     data = requests.get(url, params=data)
     #print data
-    #print data.json()
+    print data.json()
+    print len(data.json())
     rows = [['WarrantyStatus','Core','Physicallocation','OwnerTeam','Description','SerialNo','Make','RAM','Status','SubnetDetails','HDD','UsedBy','OwnerPerson','TypeOfDeployment','IP','validationStatus','Leasedto','Model','Processor']]
-    data = [[k[i] for i in rows[0]] for k in data.json()]
+    data = [[k[i].encode('ascii','ignore') for i in rows[0]] for k in data.json()]
     #print data
     rows.extend(data)
     pseudo_buffer = Echo()
