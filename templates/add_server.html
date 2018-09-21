@@ -18,37 +18,89 @@
                                             {% csrf_token %}
                                             <div class="row form-group">
                                                 <div class="col-md-6">
+                                                  <input type="text" class="form-control" id="Make" name="Make" placeholder="Make" required>
+                                                    </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="Model" name="Model" placeholder="Model" required>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col-md-6">
                                                   <input type="text" class="form-control" id="SerialNo" name="SerialNo" placeholder="SerialNo" required>
                                                     </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="IP" name="IP" placeholder="IP" required>
+                                                    <input type="text" class="form-control" id="Processor" name="Processor" placeholder="Processor" required>
+                                                </div>
+
+                                            </div>
+
+                                              <div class="row form-group">
+                                                <div class="col-md-6">
+                                                  <input type="text" class="form-control" id="Core" name="Core" placeholder="Core" required>
+                                                    </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="RAM" name="RAM" placeholder="RAM" required>
                                                 </div>
 
                                             </div>
                                         <div class="row form-group">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="RAM" name="RAM" placeholder="RAM" required>
+                                                    <input type="text" class="form-control" id="HDD" name="HDD" placeholder="HDD" required>
 
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="Physicallocation" name="Physicallocation" placeholder="Physicallocation" required>
-
-                                                               </div>
-                                        </div>
-                                         <div class="row form-group">
-                                                <div class="col-md-6">
-                                                    <select name="WarrantyStatus" id="WarrantyStatus" class="form-control" required>
+                                                   <select name="WarrantyStatus" id="WarrantyStatus" class="form-control">
                                                         <option value="">--WarrantyStatus--</option>
                                                         <option value="1">Active</option>
                                                         <option value="2">Expire</option>
                                                     </select>
+                                                               </div>
+                                        </div>
+                                         <div class="row form-group">
+                                                <div class="col-md-6">
+                                                    <textarea name="Description" id="Description" placeholder="Description" rows="1" cols="53" class="form-control" required></textarea>
                                                                      </div>
-                                               <div class="col-md-6">
-                                                   <textarea name="Description" id="Description" placeholder="Description" rows="1" cols="53" class="form-control"></textarea>
-
-
-                                                </div>
+                                             <div class="col-md-6">
+                                                     <input type="text" class="form-control" id="OwnerTeam" name="OwnerTeam" placeholder="OwnerTeam" required>
+                                                                     </div>
                                          </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-6">
+                                                  <input type="text" class="form-control" id="OwnerPerson" name="OwnerPerson" placeholder="OwnerPerson" required>
+                                                    </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="Leasedto" name="Leasedto" placeholder="Leasedto">
+                                                </div>
+
+                                            </div>
+
+                                                <div class="row form-group">
+                                                <div class="col-md-6">
+                                                  <input type="text" class="form-control" id="UsedBy" name="UsedBy" placeholder="UsedBy">
+                                                    </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="Physicallocation" name="Physicallocation" placeholder="Physicallocation" required>
+                                                </div>
+
+                                            </div>
+
+                                             <div class="row form-group">
+                                                <div class="col-md-6">
+                                                  <input type="text" class="form-control" id="IP" name="IP" placeholder="IP" required>
+                                                    </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="SubnetDetails" name="SubnetDetails" placeholder="SubnetDetails">
+                                                </div>
+
+                                            </div>
+
+                                             <div class="row form-group">
+                                                <div class="col-md-6">
+                                                  <input type="text" class="form-control" id="TypeOfDeployment" name="TypeOfDeployment" placeholder="TypeOfDeployment" required>
+                                                    </div>
+                                            </div>
 
 
 
