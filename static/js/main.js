@@ -2177,7 +2177,7 @@ return circle;
 }
 (function ($) {
  $('table tbody').on('click','.validate', function () {
-  href='http://10.112.86.90/'+$(this).attr("href");
+  href=$(this).attr("href");
   $.ajax({
           url: href,
           type: 'GET',
