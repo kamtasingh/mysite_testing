@@ -2185,7 +2185,9 @@ return circle;
           dataType: 'json',
           data: {},
           success: function(data) {
-          alert("Request has been send");
+          if (data){
+          alert("Request has been submitted successfully.");
+          }
           window.location="";
 
           },
