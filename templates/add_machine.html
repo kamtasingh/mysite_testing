@@ -15,6 +15,7 @@
                                     <div class="card-header">Add Machine</div>
                                     <div class="card-body">
                                         <form method="post" action="" id="add_machine">
+                                            {% csrf_token %}ss
                                             <div class="row form-group">
                                                 <div class="col-md-6">
                                                   <input type="text" class="form-control" name="SerialNo" placeholder="SerialNo" required>

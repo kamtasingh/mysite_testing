@@ -2228,7 +2228,7 @@ return false;
 
   $.ajax({
           url: 'http://10.112.86.90/api/testmachine',
-          type: 'GET',
+          type: 'POST',
           contentType:'application/json',
           dataType: 'json',
           data: $(this).serialize(),
