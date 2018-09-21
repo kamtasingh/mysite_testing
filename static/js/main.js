@@ -2175,4 +2175,74 @@ circle='<i class="fa fa-circle" style="color:black"></i>';
 }
 return circle;
 }
+(function ($) {
+ $('table tbody').on('click','.validate', function () {
+  href='http://10.112.86.90/'+$(this).attr("href");
+  $.ajax({
+          url: href,
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {},
+          success: function(data) {
+          alert("Request has been send");
+          window.location="";
 
+          },
+          error: function() { alert('Something wrong happen. Please try again!'); window.location=""; }
+        });
+return false;
+        });
+  })(jQuery);
+
+
+  (function ($) {
+  $("form#add_machine").submit(function(){
+
+
+  $.ajax({
+          url: 'http://10.112.86.90/api/testmachine',
+          type: 'POST',
+          contentType:'application/json',
+          dataType: 'json',
+          data: $(this).serialize(),
+          success: function(data) {
+          alert("Thanks for submitting.");
+          window.location="/mysite/machinedetail";
+
+
+          },
+          error: function() { alert('Something wrong happen. Please try again!'); }
+        });
+
+
+
+  });
+
+  })(jQuery);
+
+
+  (function ($) {
+  $("form#add_server").submit(function(){
+
+
+  $.ajax({
+          url: 'http://10.112.86.90/api/testmachine',
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: $(this).serialize(),
+          success: function(data) {
+          alert("Thanks for submitting.");
+          window.location="/mysite/serverdetail";
+
+
+          },
+          error: function() { alert('Something wrong happen. Please try again!'); }
+        });
+
+
+
+  });
+
+  })(jQuery);

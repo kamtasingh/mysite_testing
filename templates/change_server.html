@@ -1,0 +1,115 @@
+{% extends "admin_base.html" %}
+
+{% load staticfiles %}
+{% block title %} Change Server - {{ user.username }} {% endblock %}
+{% block extracss %}
+{% endblock %}
+{% block main %}
+
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">Modify Server</div>
+                                    <div class="card-body">
+                                        <form method="post" action="" id="add_server">
+                                            <div class="row form-group">
+                                                <div class="col-md-6">
+                                                  <input type="text" class="form-control" id="SerialNo" name="SerialNo" placeholder="SerialNo" required>
+                                                    </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="IP" name="IP" placeholder="IP" required>
+                                                </div>
+
+                                            </div>
+                                        <div class="row form-group">
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="RAM" name="RAM" placeholder="RAM" required>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="Physicallocation" name="Physicallocation" placeholder="Physicallocation" required>
+
+                                                               </div>
+                                        </div>
+                                         <div class="row form-group">
+                                                <div class="col-md-6">
+                                                    <select name="WarrantyStatus" id="WarrantyStatus" class="form-control" required>
+                                                        <option value="">--WarrantyStatus--</option>
+                                                        <option value="1">Active</option>
+                                                        <option value="2">Expire</option>
+                                                    </select>
+                                                                     </div>
+                                               <div class="col-md-6">
+                                                   <textarea name="Description" id="Description" placeholder="Description" rows="1" cols="53" class="form-control"></textarea>
+
+
+                                                </div>
+                                         </div>
+
+
+
+
+                                        <div><button type="submit" class="btn btn-lg btn-info btn-block">
+                                                    Modify Server
+                                                </button></div>
+                                            </form>
+                                </div>
+
+
+                    </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 CoolAdmin. All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
+{% block extrajs %}
+<script>
+getserverinfo();
+
+
+function getserverinfo(){
+$.ajax({
+          url: 'http://10.112.86.90/api/inventory/GetServerInfo',
+          type: 'GET',
+          data: {serial: "{{ request.GET.serialno }}"},
+          contentType:'application/json',
+          dataType: 'json',
+          success: function(data) {
+          console.log(data);
+          $("#SerialNo").val(data.SerialNo);
+          $("#IP").val(data.IP);
+          $("#HostName").val(data.HostName);
+          $("#RAM").val(data.RAM);
+          $("#Physicallocation").val(data.Physicallocation);
+          $("#WarrantyStatus").val(data.WarrantyStatus);
+          $("#Description").val(data.Description);
+          },
+          error: function() { console.log('Something wrong happen, Please try again!'); }
+        });
+}
+
+
+
+    </script>
+
+
+
+{% endblock %}
