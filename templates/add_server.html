@@ -17,49 +17,37 @@
                                         <form method="post" action="" id="add_server">
                                             <div class="row form-group">
                                                 <div class="col-md-6">
-                                                  <input type="text" class="form-control" name="SerialNo" placeholder="SerialNo" required>
+                                                  <input type="text" class="form-control" id="SerialNo" name="SerialNo" placeholder="SerialNo" required>
                                                     </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="IP" placeholder="IP" required>
+                                                    <input type="text" class="form-control" id="IP" name="IP" placeholder="IP" required>
                                                 </div>
 
                                             </div>
                                         <div class="row form-group">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="HostName" placeholder="HostName" required>
+                                                    <input type="text" class="form-control" id="RAM" name="RAM" placeholder="RAM" required>
+
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="RAM" placeholder="RAM" required>
-                                                </div>
+                                                    <input type="text" class="form-control" id="Physicallocation" name="Physicallocation" placeholder="Physicallocation" required>
+
+                                                               </div>
                                         </div>
                                          <div class="row form-group">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="Physicallocation" placeholder="Physicallocation" required>
-                                                </div>
-                                               <div class="col-md-6">
-                                                    <select name="ProvidedBy" id="providedby" class="form-control" required>
-                                                        <option value="">--ProvidedBy --</option>
-                                                        <option value="Mitel">Mitel</option>
-                                                        <option value="HCL">HCL</option>
+                                                    <select name="WarrantyStatus" id="WarrantyStatus" class="form-control" required>
+                                                        <option value="">--WarrantyStatus--</option>
+                                                        <option value="1">Active</option>
+                                                        <option value="2">Expire</option>
                                                     </select>
+                                                                     </div>
+                                               <div class="col-md-6">
+                                                   <textarea name="Description" id="Description" placeholder="Description" rows="1" cols="53" class="form-control"></textarea>
+
+
                                                 </div>
                                          </div>
-                                         <div class="row form-group">
-                                               <div class="col-md-6">
-                                                   <select name="WarrantyStatus" id="WarrantyStatus" class="form-control" required>
-                                                        <option value="">--WarrantyStatus--</option>
-                                                        <option value="Active">Active</option>
-                                                        <option value="Expire">Expire</option>
-                                                    </select>
-                                                </div>
-                                             <div class="col-md-6">
-                                                    <!--<input type="textarea" class="form-control" name="Description" placeholder="Description" required>-->
-                                                 <textarea name="Description" placeholder="Description" rows="1" cols="53" class="form-control"></textarea>
-                                                </div>
-
-
-
-                                    </div>
 
 
 
