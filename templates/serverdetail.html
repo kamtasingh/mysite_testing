@@ -86,7 +86,7 @@ $.ajax({
           for (var i = 0; i < data.length; i++) {
           validate="";
           if (data[i].validationStatus != 1){
-          validate=' <a class="btn btn-sm btn-success pull-right validate" href="/api/validate/'+data[i].SerialNo+'/"> Validate </a>'
+          validate=' <a class="btn btn-sm btn-success pull-right validate" href="http://10.112.86.90/api/inventory/ValidateDesktop/?serial='+data[i].SerialNo+'"> Validate </a>'
           }
 
            options += '<tr><td><a href="/mysite/serverdetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a></td><td>'+ data[i].IP + '</td><td>'+ getcolorbubble(data[i].WarrantyStatus) +'</td><td>'+ getcolorbubble(data[i].Status) +'</td><td>'+ getcolorbubble(data[i].validationStatus) + validate +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].Description + '</td></tr>';
