@@ -2246,3 +2246,51 @@ return false;
   });
 
   })(jQuery);
+
+
+
+  (function ($) {
+  $("form#change_server").submit(function(){
+
+
+  $.ajax({
+          url: 'http://10.112.86.90/api/testmachine',
+          type: 'POST',
+          contentType:'application/json',
+          dataType: 'json',
+          data: $(this).serialize(),
+          success: function(data) {
+          alert("Thanks for submitting.");
+          window.location="/mysite/serverdetail";
+          },
+          error: function() { alert('Something wrong happen. Please try again!'); }
+        });
+
+
+
+  });
+
+  })(jQuery);
+
+  (function ($) {
+  $("form#change_machine").submit(function(){
+
+
+  $.ajax({
+          url: 'http://10.112.86.90/api/testmachine',
+          type: 'POST',
+          contentType:'application/json',
+          dataType: 'json',
+          data: $(this).serialize(),
+          success: function(data) {
+          alert("Thanks for submitting.");
+          window.location="/mysite/machinedetail";
+          },
+          error: function() { alert('Something wrong happen. Please try again!'); }
+        });
+
+
+
+  });
+
+  })(jQuery);
