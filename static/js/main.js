@@ -1553,7 +1553,7 @@ function setHeader(xhr) {
           }
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
   $.ajax({
@@ -1580,7 +1580,7 @@ function setHeader(xhr) {
           $("tbody#agentdata").html(options);
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
 
@@ -1639,7 +1639,7 @@ function setHeader(xhr) {
           myChart.update();
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
   }else{
@@ -1796,7 +1796,7 @@ function setHeader(xhr) {
 
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
   filltags();
@@ -1828,7 +1828,7 @@ function setHeader(xhr) {
           $("select#agentdb").html(agentconfigdb);
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 });
 })(jQuery);
@@ -1853,7 +1853,7 @@ function setHeader(xhr) {
            }
           $("select#agentdb").html(options);
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 });
 })(jQuery);
@@ -1882,7 +1882,7 @@ $.ajax({
           $('.select-ajax').append(newOption);
            }
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
 
@@ -2008,7 +2008,7 @@ if($("#platform").val())
           $("tbody#agentdata").html(options);
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 }
 else{
@@ -2040,7 +2040,7 @@ function statusAction(ip){
           alert("Request has been send");
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
     }
@@ -2191,7 +2191,7 @@ return circle;
           window.location="";
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); window.location=""; }
+          error: function() { console.log('Something wrong happen. Please try again!'); window.location=""; }
         });
 return false;
         });
@@ -2203,7 +2203,7 @@ return false;
 
 
   $.ajax({
-          url: 'http://10.112.86.90/api/testmachine',
+          url: 'http://10.112.86.90/api/Inventory/adddesktop',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
@@ -2214,7 +2214,7 @@ return false;
 
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
 
@@ -2229,7 +2229,7 @@ return false;
 
 
   $.ajax({
-          url: 'http://10.112.86.90/api/testmachine',
+          url: 'http://10.112.86.90/api/Inventory/addserver',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
@@ -2240,7 +2240,7 @@ return false;
 
 
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
 
@@ -2256,7 +2256,7 @@ return false;
 
 
   $.ajax({
-          url: 'http://10.112.86.90/api/testmachine',
+          url: 'http://10.112.86.90/api/Inventory/updateserver',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
@@ -2265,7 +2265,7 @@ return false;
           alert("Thanks for submitting.");
           window.location="/mysite/serverdetail";
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
 
@@ -2279,7 +2279,7 @@ return false;
 
 
   $.ajax({
-          url: 'http://10.112.86.90/api/testmachine',
+          url: 'http://10.112.86.90/api/Inventory/updatedesktop',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
@@ -2288,7 +2288,7 @@ return false;
           alert("Thanks for submitting.");
           window.location="/mysite/machinedetail";
           },
-          error: function() { alert('Something wrong happen. Please try again!'); }
+          error: function() { console.log('Something wrong happen. Please try again!'); }
         });
 
 
