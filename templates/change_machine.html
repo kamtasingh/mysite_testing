@@ -53,7 +53,7 @@
 
                                                 <div class="col-md-6">
                                                     <label class="control-label mb-1">Warranty Status</label>
-                                                   <select name="WarrantyStatus" id="WarrantyStatus" class="form-control">
+                                                   <select name="WarrantyStatus" id="WarrantyStatus" class="form-control" required>
                                                         <option value="">--WarrantyStatus--</option>
                                                         <option value="1">Active</option>
                                                         <option value="2">Expire</option>
@@ -61,7 +61,14 @@
                                                                </div>
                                              <div class="col-md-6">
                                                     <label class="control-label mb-1">Status</label>
-                                                    <input type="text" class="form-control" id="Status" name="Status" placeholder="Status">
+                                                 <select name="Status" id="Status" class="form-control">
+                                                        <option value="">--Status--</option>
+                                                        <option value="1">Online</option>
+                                                        <option value="2">Offline</option>
+                                                        <option value="3">Not in Use </option>
+                                                        <option value="4">Working but known issue </option>
+                                                        <option value="5">Status unknown</option>
+                                                    </select>
 
                                                 </div>
                                         </div>
@@ -111,7 +118,11 @@
                                              <div class="row form-group">
                                                  <div class="col-md-6">
                                                  <label class="control-label mb-1">Provided By</label>
-                                                     <input type="text" class="form-control" id="ProvidedBy" name="ProvidedBy" placeholder="ProvidedBy" required>
+                                                     <select name="WarrantyStatus" id="ProvidedBy" class="form-control" required>
+                                                        <option value="">--ProvidedBy--</option>
+                                                        <option value="HCL">HCL</option>
+                                                        <option value="Mitel">Mitel</option>
+                                                    </select>
                                                                      </div>
                                          </div>
 

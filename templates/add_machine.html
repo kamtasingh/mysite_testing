@@ -46,15 +46,21 @@
                                         <div class="row form-group">
 
                                                 <div class="col-md-6">
-                                                   <select name="WarrantyStatus" id="WarrantyStatus" class="form-control">
+                                                   <select name="WarrantyStatus" id="WarrantyStatus" class="form-control" required>
                                                         <option value="">--WarrantyStatus--</option>
                                                         <option value="1">Active</option>
                                                         <option value="2">Expire</option>
                                                     </select>
                                                                </div>
                                              <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="Status" name="Status" placeholder="Status" required>
-
+                                                 <select name="Status" id="Status" class="form-control">
+                                                        <option value="">--Status--</option>
+                                                        <option value="1">Online</option>
+                                                        <option value="2">Offline</option>
+                                                        <option value="3">Not in Use </option>
+                                                        <option value="4">Working but known issue </option>
+                                                        <option value="5">Status unknown</option>
+                                                    </select>
                                                 </div>
                                         </div>
                                              <div class="row form-group">
@@ -66,8 +72,16 @@
                                                                      </div>
                                          </div>
                                             <div class="row form-group">
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="Ownerperson" name="OwnerPerson" placeholder="OwnerPerson" required>
+                                                                     </div>
+                                             <div class="col-md-6">
+                                                     <input type="text" class="form-control" id="Leasedto" name="Leasedto" placeholder="Leasedto">
+                                                                     </div>
+                                         </div>
+                                            <div class="row form-group">
                                                  <div class="col-md-6">
-                                                     <input type="text" class="form-control" id="UsedBy" name="UsedBy" placeholder="UsedBy" required>
+                                                     <input type="text" class="form-control" id="UsedBy" name="UsedBy" placeholder="UsedBy">
                                                                      </div>
                                              <div class="col-md-6">
                                                      <input type="text" class="form-control" id="Physicallocation" name="Physicallocation" placeholder="Physicallocation" required>
