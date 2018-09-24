@@ -46,13 +46,13 @@
                                         <div class="row form-group">
 
                                                 <div class="col-md-6">
-                                                   <select name="WarrantyStatus" id="WarrantyStatus" class="form-control" required>
-                                                        <option value="">--WarrantyStatus--</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="2">Expire</option>
-                                                    </select>
+
+                                                    <label class="control-label mb-1">Expired At</label>
+                                                    <input type="date" name="WarrantyStatus" class="form-control" required min="2015-12-31" placeholder="Expired At">
                                                                </div>
                                              <div class="col-md-6">
+
+                                                    <label class="control-label mb-1">Status</label>
                                                  <select name="Status" id="Status" class="form-control">
                                                         <option value="">--Status--</option>
                                                         <option value="1">Online</option>
