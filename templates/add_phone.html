@@ -1,7 +1,7 @@
 {% extends "admin_base.html" %}
 
 {% load staticfiles %}
-{% block title %} Change Machine - {{ user.username }} {% endblock %}
+{% block title %} Add Phone - {{ user.username }} {% endblock %}
 {% block extracss %}
 {% endblock %}
 {% block main %}
@@ -12,39 +12,33 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
-                                    <div class="card-header">Change Machine</div>
+                                    <div class="card-header">Add Phone</div>
                                     <div class="card-body">
-                                        <form method="post" action="" id="change_machine">
+                                        <form method="post" action="" id="add_phone">
                                             {% csrf_token %}
-                                            <div class="row form-group">
+                                             <div class="row form-group">
                                                 <div class="col-md-6">
-                                                    <label class="control-label mb-1">Make</label>
                                                   <input type="text" class="form-control" id="Make" name="Make" placeholder="Make" required>
                                                     </div>
                                                 <div class="col-md-6">
-                                                    <label class="control-label mb-1">Model</label>
                                                     <input type="text" class="form-control" id="Model" name="Model" placeholder="Model" required>
                                                 </div>
 
                                             </div>
                                         <div class="row form-group">
                                                 <div class="col-md-6">
-                                                    <label class="control-label mb-1">Serial No</label>
-                                                  <input type="text" class="form-control" id="SerialNo" name="SerialNo" placeholder="SerialNo" required readonly>
+                                                  <input type="text" class="form-control" id="SerialNo" name="SerialNo" placeholder="SerialNo" required>
                                                     </div>
                                                 <div class="col-md-6">
-                                                    <label class="control-label mb-1">Processor</label>
                                                     <input type="text" class="form-control" id="Processor" name="Processor" placeholder="Processor" required>
                                                 </div>
 
                                             </div>
-                                          <div class="row form-group">
+                                      <div class="row form-group">
                                                 <div class="col-md-6">
-                                                    <label class="control-label mb-1">RAM</label>
                                                   <input type="text" class="form-control" id="RAM" name="RAM" placeholder="RAM" required>
                                                     </div>
                                                 <div class="col-md-6">
-                                                    <label class="control-label mb-1">HDD</label>
                                                     <input type="text" class="form-control" id="HDD" name="HDD" placeholder="HDD" required>
                                                 </div>
 
@@ -53,14 +47,11 @@
 
                                                 <div class="col-md-6">
 
-
-                                                     <label class="control-label mb-1">Expired At</label>
-                                                    <input type="date" name="WarrantyStatus" class="form-control" min="2015-12-31" placeholder="Expired At">
-
-
-
+                                                    <label class="control-label mb-1">Expired At</label>
+                                                    <input type="date" name="WarrantyStatus" class="form-control"  min="2015-12-31" placeholder="Expired At">
                                                                </div>
                                              <div class="col-md-6">
+
                                                     <label class="control-label mb-1">Status</label>
                                                  <select name="Status" id="Status" class="form-control">
                                                         <option value="">--Status--</option>
@@ -70,55 +61,43 @@
                                                         <option value="4">Working but known issue </option>
                                                         <option value="5">Status unknown</option>
                                                     </select>
-
                                                 </div>
                                         </div>
                                              <div class="row form-group">
                                                 <div class="col-md-6">
-                                                    <label class="control-label mb-1">Description</label>
                                                     <textarea name="Description" id="Description" placeholder="Description" rows="1" cols="53" class="form-control" required></textarea>
                                                                      </div>
                                              <div class="col-md-6">
-                                                 <label class="control-label mb-1">Owner Team</label>
                                                      <input type="text" class="form-control" id="OwnerTeam" name="OwnerTeam" placeholder="OwnerTeam" required>
                                                                      </div>
                                          </div>
-
-                                             <div class="row form-group">
-                                                 <div class="col-md-6">
-                                                 <label class="control-label mb-1">Owner Person</label>
-                                                     <input type="text" class="form-control" id="OwnerPerson" name="OwnerPerson" placeholder="OwnerPerson" required>
+                                            <div class="row form-group">
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="Ownerperson" name="OwnerPerson" placeholder="OwnerPerson" required>
                                                                      </div>
                                              <div class="col-md-6">
-                                                 <label class="control-label mb-1">Leasedto</label>
                                                      <input type="text" class="form-control" id="Leasedto" name="Leasedto" placeholder="Leasedto">
                                                                      </div>
                                          </div>
                                             <div class="row form-group">
                                                  <div class="col-md-6">
-                                                 <label class="control-label mb-1">Used By</label>
                                                      <input type="text" class="form-control" id="UsedBy" name="UsedBy" placeholder="UsedBy">
                                                                      </div>
                                              <div class="col-md-6">
-                                                 <label class="control-label mb-1">Physicallocation</label>
                                                      <input type="text" class="form-control" id="Physicallocation" name="Physicallocation" placeholder="Physicallocation" required>
                                                                      </div>
                                          </div>
-
                                             <div class="row form-group">
                                                  <div class="col-md-6">
-                                                 <label class="control-label mb-1">IP</label>
                                                      <input type="text" class="form-control" id="IP" name="IP" placeholder="IP" required>
                                                                      </div>
                                              <div class="col-md-6">
-                                                 <label class="control-label mb-1">Host Name</label>
-                                                     <input type="text" class="form-control" id="HostName" name="HostName" placeholder="HostName" required>
+                                                     <input type="text" class="form-control" id="HoastName" name="HostName" placeholder="HostName" required>
                                                                      </div>
                                          </div>
-
                                              <div class="row form-group">
                                                  <div class="col-md-6">
-                                                 <label class="control-label mb-1">Provided By</label>
+                                                     <label class="control-label mb-1">Provided By</label>
                                                      <select name="WarrantyStatus" id="ProvidedBy" class="form-control" required>
                                                         <option value="">--ProvidedBy--</option>
                                                         <option value="HCL">HCL</option>
@@ -129,8 +108,8 @@
                                             <input type="hidden" name="actionBy" value="{{ user.email }}" >
                                          </div>
 
-                                        <div><button type="submit" class="btn btn-lg btn-info btn-block addmachine">
-                                                    Change Machine
+                                        <div><button type="submit" class="btn btn-lg btn-info btn-block addphone">
+                                                    Add Phone
                                                 </button></div>
                                             </form>
                                 </div>
@@ -158,44 +137,4 @@
 
 {% endblock %}
 {% block extrajs %}
-
-<script>
-getmachineinfo();
-
-
-function getmachineinfo(){
-$.ajax({
-          url: 'http://10.112.86.90/api/inventory/GetDesktopInfo',
-          type: 'GET',
-          data: {serial: "{{ request.GET.serialno }}"},
-          contentType:'application/json',
-          dataType: 'json',
-          success: function(data) {
-          console.log(data);
-         $("#Make").val(data.Make);
-          $("#Model").val(data.Model);
-          $("#SerialNo").val(data.SerialNo);
-          $("#Processor").val(data.Processor);
-          $("#RAM").val(data.RAM);
-          $("#HDD").val(data.HDD);
-          $("#Status").val(data.Status);
-          $("#Description").val(data.Description);
-          $("#OwnerTeam").val(data.OwnerTeam);
-          $("#OwnerPerson").val(data.OwnerPerson);
-          $("#Leasedto").val(data.Leasedto);
-          $("#UsedBy").val(data.UsedBy);
-          $("#Physicallocation").val(data.Physicallocation);
-          $("#IP").val(data.IP);
-          $("#HostName").val(data.HostName);
-          $("#ProvidedBy").val(data.ProvidedBy);
-          },
-          error: function() { console.log('Something wrong happen, Please try again!'); }
-        });
-}
-
-
-
-    </script>
-
-
 {% endblock %}

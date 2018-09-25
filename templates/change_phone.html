@@ -1,7 +1,7 @@
 {% extends "admin_base.html" %}
 
 {% load staticfiles %}
-{% block title %} Change Machine - {{ user.username }} {% endblock %}
+{% block title %} Change Phone - {{ user.username }} {% endblock %}
 {% block extracss %}
 {% endblock %}
 {% block main %}
@@ -12,9 +12,9 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
-                                    <div class="card-header">Change Machine</div>
+                                    <div class="card-header">Change Phone</div>
                                     <div class="card-body">
-                                        <form method="post" action="" id="change_machine">
+                                        <form method="post" action="" id="change_phone">
                                             {% csrf_token %}
                                             <div class="row form-group">
                                                 <div class="col-md-6">
@@ -129,8 +129,8 @@
                                             <input type="hidden" name="actionBy" value="{{ user.email }}" >
                                          </div>
 
-                                        <div><button type="submit" class="btn btn-lg btn-info btn-block addmachine">
-                                                    Change Machine
+                                        <div><button type="submit" class="btn btn-lg btn-info btn-block addphone">
+                                                    Change Phone
                                                 </button></div>
                                             </form>
                                 </div>
@@ -160,10 +160,10 @@
 {% block extrajs %}
 
 <script>
-getmachineinfo();
+getphoneinfo();
 
 
-function getmachineinfo(){
+function getphoneinfo(){
 $.ajax({
           url: 'http://10.112.86.90/api/inventory/GetDesktopInfo',
           type: 'GET',
