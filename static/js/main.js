@@ -2257,7 +2257,7 @@ return false;
 
   $.ajax({
           url: 'http://10.112.86.90/api/Inventory/updateserver',
-          type: 'POST',
+          type: 'GET',
           contentType:'application/json',
           dataType: 'json',
           data: $(this).serialize(),
@@ -2265,7 +2265,9 @@ return false;
           alert("Thanks for submitting.");
           window.location="/mysite/serverdetail";
           },
-          error: function() { console.log('Something wrong happen. Please try again!'); }
+          error: function() {
+          console.log('Something wrong happen. Please try again!');
+           }
         });
 
 
@@ -2277,10 +2279,9 @@ return false;
   (function ($) {
   $("form#change_machine").submit(function(){
 
-
   $.ajax({
           url: 'http://10.112.86.90/api/Inventory/updatedesktop',
-          type: 'POST',
+          type: 'GET',
           contentType:'application/json',
           dataType: 'json',
           data: $(this).serialize(),
@@ -2288,7 +2289,9 @@ return false;
           alert("Thanks for submitting.");
           window.location="/mysite/machinedetail";
           },
-          error: function() { console.log('Something wrong happen. Please try again!'); }
+          error: function() {
+          console.log('Something wrong happen. Please try again!');
+           }
         });
 
 
