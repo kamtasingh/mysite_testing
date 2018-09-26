@@ -2299,6 +2299,8 @@ return false;
           window.location="/mysite/machinedetail";
            }
         });
+        return false;
+
 
 
 
