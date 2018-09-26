@@ -2201,22 +2201,29 @@ return false;
   (function ($) {
   $("form#add_machine").submit(function(){
 
+  var dataobj=ConvertFormToJSON(this);
+  dataobj=JSON.stringify(dataobj);
 
   $.ajax({
           url: 'http://10.112.86.90/api/Inventory/adddesktop',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
-          data: $(this).serialize(),
+          data: dataobj,
           success: function(data) {
+           $.ajax({url: "http://10.112.86.90/api/Inventory/updatedesktopview", success: function(result){
+            console.log("Request sent seuccessfully");
+        }});
           alert("Thanks for submitting.");
           window.location="/mysite/machinedetail";
-
-
           },
-          error: function() { console.log('Something wrong happen. Please try again!'); }
+          error: function() {
+          alert('Something wrong happen. Please try again!');
+          window.location="/mysite/serverdetail";
+          }
         });
 
+        return false;
 
 
   });
@@ -2227,22 +2234,30 @@ return false;
   (function ($) {
   $("form#add_server").submit(function(){
 
+  var dataobj=ConvertFormToJSON(this);
+  dataobj=JSON.stringify(dataobj);
 
   $.ajax({
           url: 'http://10.112.86.90/api/Inventory/addserver',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
-          data: $(this).serialize(),
+          data: dataobj,
           success: function(data) {
+           $.ajax({url: "http://10.112.86.90/api/Inventory/updateserverview", success: function(result){
+            console.log("Request sent seuccessfully");
+        }});
           alert("Thanks for submitting.");
           window.location="/mysite/serverdetail";
 
 
           },
-          error: function() { console.log('Something wrong happen. Please try again!'); }
+          error: function() {
+          alert('Something wrong happen. Please try again!');
+          window.location="/mysite/serverdetail";
+          }
         });
-
+       return false;
 
 
   });
@@ -2253,15 +2268,19 @@ return false;
 
   (function ($) {
   $("form#change_server").submit(function(){
-
+  var dataobj=ConvertFormToJSON(this);
+  dataobj=JSON.stringify(dataobj);
 
   $.ajax({
           url: 'http://10.112.86.90/api/Inventory/updateserver',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
-          data: $(this).serialize(),
+          data: dataobj,
           success: function(data) {
+           $.ajax({url: "http://10.112.86.90/api/Inventory/updateserverview", success: function(result){
+            console.log("Request sent seuccessfully");
+        }});
           alert("Thanks for submitting.");
           window.location="/mysite/serverdetail";
           },
@@ -2271,6 +2290,7 @@ return false;
            }
         });
 
+        return false;
 
 
   });
@@ -2281,8 +2301,6 @@ return false;
   $("form#change_machine").submit(function(){
   var dataobj=ConvertFormToJSON(this);
   dataobj=JSON.stringify(dataobj);
-  console.log(dataobj);
-  alert(dataobj);
   $.ajax({
           url: 'http://10.112.86.90/api/Inventory/updatedesktop',
           type: 'POST',
@@ -2290,6 +2308,10 @@ return false;
           dataType: 'json',
           data: dataobj,
           success: function(data) {
+          $.ajax({url: "http://10.112.86.90/api/Inventory/updatedesktopview", success: function(result){
+            console.log("Request sent seuccessfully");
+        }});
+
           alert("Thanks for submitting.");
           window.location="/mysite/machinedetail";
           },
