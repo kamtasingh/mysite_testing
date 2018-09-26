@@ -2266,7 +2266,8 @@ return false;
           window.location="/mysite/serverdetail";
           },
           error: function() {
-          console.log('Something wrong happen. Please try again!');
+          alert('Something wrong happen. Please try again!');
+          window.location="/mysite/serverdetail";
            }
         });
 
@@ -2278,19 +2279,24 @@ return false;
 
   (function ($) {
   $("form#change_machine").submit(function(){
-
+  var dataobj=ConvertFormToJSON(this);
+  dataobj=JSON.stringify(dataobj);
+  console.log(dataobj);
+  alert(dataobj);
   $.ajax({
           url: 'http://10.112.86.90/api/Inventory/updatedesktop',
-          type: 'GET',
+          type: 'POST',
           contentType:'application/json',
           dataType: 'json',
-          data: $(this).serialize(),
+          data: dataobj,
           success: function(data) {
           alert("Thanks for submitting.");
           window.location="/mysite/machinedetail";
           },
           error: function() {
-          console.log('Something wrong happen. Please try again!');
+
+          alert('Something wrong happen. Please try again!');
+          window.location="/mysite/machinedetail";
            }
         });
 
@@ -2299,3 +2305,15 @@ return false;
   });
 
   })(jQuery);
+
+
+  function ConvertFormToJSON(form){
+    var array = jQuery(form).serializeArray();
+    var json = {};
+
+    jQuery.each(array, function() {
+        json[this.name] = this.value || '';
+    });
+
+    return json;
+}
