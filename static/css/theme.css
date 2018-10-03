@@ -3484,7 +3484,7 @@ section {
 
 .au-message__item {
     border-bottom: 1px solid #f2f2f2;
-    cursor: pointer;
+    cursor: auto;
     -webkit-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -4685,12 +4685,14 @@ section {
 }
 
 .table-data3 thead tr th:last-child {
-    text-align: right;
+    /*text-align: right;*/
+    text-align: left;
     padding-right: 50px;
 }
 
 .table-data3 tbody tr td:last-child {
-    text-align: right;
+    /*text-align: right;*/
+    text-align: left;
     padding-right: 50px;
 }
 

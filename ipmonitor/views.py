@@ -41,7 +41,7 @@ def serverdetail(request):
 
 def downloadmachinedetail(request):
     import requests
-    url = "http://10.112.86.90/api/Inventory/GetDesktops"
+    url = "http://10.112.87.90/api/Inventory/GetDesktops"
     data = {"email": request.user.email, "is_staff": request.user.is_staff}
     data = requests.get(url, params=data)
     #print data
@@ -62,7 +62,7 @@ def downloadmachinedetail(request):
 
 def downloadserverdetail(request):
     import requests
-    url = "http://10.112.86.90/api/Inventory/GetServers"
+    url = "http://10.112.87.90/api/Inventory/GetServers"
     data = {"email": request.user.email, "is_staff": request.user.is_staff}
     data = requests.get(url, params=data)
     #print data

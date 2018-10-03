@@ -1486,7 +1486,7 @@
   }
 
   // Chatbox
-  try {
+  /*try {
     var inbox_wrap = $('.js-inbox');
     var message = $('.au-message__item');
     message.each(function(){
@@ -1496,11 +1496,11 @@
         $(this).parent().parent().parent().toggleClass('show-chat-box');
       });
     });
-    
+
 
   } catch (error) {
     console.log(error);
-  }
+  }*/
 
 })(jQuery);
 
@@ -1514,7 +1514,7 @@ function setHeader(xhr) {
   $("select#platform").change(function(){
 
   $.ajax({
-          url: 'http://10.112.86.90/api/build',
+          url: 'http://10.112.87.90/api/build',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -1557,7 +1557,7 @@ function setHeader(xhr) {
         });
 
   $.ajax({
-          url: 'http://10.112.86.90/api/agent',
+          url: 'http://10.112.87.90/api/agent',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -1597,7 +1597,7 @@ function setHeader(xhr) {
   $("#download").attr("href",$(this).val().split("--")[2])
 
   $.ajax({
-          url: 'http://10.112.86.90/api/result',
+          url: 'http://10.112.87.90/api/result',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -1759,7 +1759,7 @@ function setHeader(xhr) {
   alert("Please Choose TestCases before testcase submission.");
   return;
   }
-  $.get('http://10.112.86.90/api/build/getruntc', {application: application,callmanager:callmanager,language:language,agentip:agentip,agentconfig:agentconfig,agentdb:agentdb,testcases:checkeddata }, function(data, status){
+  $.get('http://10.112.87.90/api/build/getruntc', {application: application,callmanager:callmanager,language:language,agentip:agentip,agentconfig:agentconfig,agentdb:agentdb,testcases:checkeddata }, function(data, status){
 
                         //alert(data);
                         alert("Test Cases has been submitted successfully");
@@ -1771,7 +1771,7 @@ function setHeader(xhr) {
 (function ($) {
   $("select#application").change(function(){
   $.ajax({
-          url: 'http://10.112.86.90/api/testmachine',
+          url: 'http://10.112.87.90/api/testmachine',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -1806,7 +1806,7 @@ function setHeader(xhr) {
 (function ($) {
   $("select#agentip").change(function(){
   $.ajax({
-          url: 'http://10.112.86.90/api/testmachine/GetConfig',
+          url: 'http://10.112.87.90/api/testmachine/GetConfig',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -1836,7 +1836,7 @@ function setHeader(xhr) {
 (function ($) {
   $("select#agentconfig").change(function(){
   $.ajax({
-          url: 'http://10.112.86.90/api/testmachine/GetDB',
+          url: 'http://10.112.87.90/api/testmachine/GetDB',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -1869,7 +1869,7 @@ if ($('#application').val()){
 
 
 $.ajax({
-          url: 'http://10.112.86.90/api/tags',
+          url: 'http://10.112.87.90/api/tags',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -1896,7 +1896,7 @@ $('.select-ajax').on('select2:select select2:unselect', function (e) {
     // console.log(data);
     console.log($('.select-ajax').val());
     $.ajax({
-          url: 'http://10.112.86.90/api/tags/GetTC',
+          url: 'http://10.112.87.90/api/tags/GetTC',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -1982,7 +1982,7 @@ return dropdown;
 if($("#platform").val())
 {
   $.ajax({
-          url: 'http://10.112.86.90/api/agent',
+          url: 'http://10.112.87.90/api/agent',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -2030,7 +2030,7 @@ function statusAction(ip){
     obj.style.color= 'black';
     obj.parentNode.onclick = null;
     $.ajax({
-          url: 'http://10.112.86.90/api/agent/getagentreactivate',
+          url: 'http://10.112.87.90/api/agent/getagentreactivate',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
@@ -2074,7 +2074,7 @@ $(this).closest("td").find('span').html($(this).val().split("---")[0]);
 
   $('.agentState').show();
   $(".dropdown").hide();
- $.get('http://10.112.86.90/api/agent/getagentstateset', {dataobj: data }, function(data, status){
+ $.get('http://10.112.87.90/api/agent/getagentstateset', {dataobj: data }, function(data, status){
       alert("Agent Status has been submitted successfully.");
       //window.location="/mysite/sanity/";
 
@@ -2205,16 +2205,16 @@ return false;
   dataobj=JSON.stringify(dataobj);
 
   $.ajax({
-          url: 'http://10.112.86.90/api/Inventory/adddesktop',
+          url: 'http://10.112.87.90/api/Inventory/adddesktop',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
           data: dataobj,
           success: function(data) {
-           $.ajax({url: "http://10.112.86.90/api/Inventory/updatedesktopview", success: function(result){
+           $.ajax({url: "http://10.112.87.90/api/Inventory/updatedesktopview", success: function(result){
             console.log("Request sent seuccessfully");
         }});
-          alert("Thanks for submitting.");
+          alert("Your machine data has been submitted successfully, it will be display on detail page after 2 min.");
           window.location="/mysite/machinedetail";
           },
           error: function() {
@@ -2238,16 +2238,16 @@ return false;
   dataobj=JSON.stringify(dataobj);
 
   $.ajax({
-          url: 'http://10.112.86.90/api/Inventory/addserver',
+          url: 'http://10.112.87.90/api/Inventory/addserver',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
           data: dataobj,
           success: function(data) {
-           $.ajax({url: "http://10.112.86.90/api/Inventory/updateserverview", success: function(result){
+           $.ajax({url: "http://10.112.87.90/api/Inventory/updateserverview", success: function(result){
             console.log("Request sent seuccessfully");
         }});
-          alert("Thanks for submitting.");
+          alert("Your server data has been submitted successfully, it will be display on detail page after 2 min.");
           window.location="/mysite/serverdetail";
 
 
@@ -2272,16 +2272,16 @@ return false;
   dataobj=JSON.stringify(dataobj);
 
   $.ajax({
-          url: 'http://10.112.86.90/api/Inventory/updateserver',
+          url: 'http://10.112.87.90/api/Inventory/updateserver',
           type: 'GET',
           contentType:'application/json',
           dataType: 'json',
           data: dataobj,
           success: function(data) {
-           $.ajax({url: "http://10.112.86.90/api/Inventory/updateserverview", success: function(result){
+           $.ajax({url: "http://10.112.87.90/api/Inventory/updateserverview", success: function(result){
             console.log("Request sent seuccessfully");
         }});
-          alert("Thanks for submitting.");
+          alert("Your server detail has been submitted successfully, it will be display on detail page after 2 min.");
           window.location="/mysite/serverdetail";
           },
           error: function() {
@@ -2302,17 +2302,17 @@ return false;
   var dataobj=ConvertFormToJSON(this);
   dataobj=JSON.stringify(dataobj);
   $.ajax({
-          url: 'http://10.112.86.90/api/Inventory/updatedesktop',
+          url: 'http://10.112.87.90/api/Inventory/updatedesktop',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
           data: dataobj,
           success: function(data) {
-          $.ajax({url: "http://10.112.86.90/api/Inventory/updatedesktopview", success: function(result){
+          $.ajax({url: "http://10.112.87.90/api/Inventory/updatedesktopview", success: function(result){
             console.log("Request sent seuccessfully");
         }});
 
-          alert("Thanks for submitting.");
+          alert("Your machine detail has been submitted successfully, it will be display on detail page after 2 min.");
           window.location="/mysite/machinedetail";
           },
           error: function() {

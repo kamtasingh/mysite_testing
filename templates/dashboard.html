@@ -783,7 +783,7 @@ serverDetail();
 
 function machineDetail(){
 $.ajax({
-          url: 'http://10.112.86.90/api/Inventory/GetDesktopscount',
+          url: 'http://10.112.87.90/api/Inventory/GetDesktopscount',
           type: 'GET',
           data: {email: "{{ user.email }}", is_staff : "{{ user.is_staff }}" },
           contentType:'application/json',
@@ -811,7 +811,7 @@ $.ajax({
 
 function serverDetail(){
 $.ajax({
-          url: 'http://10.112.86.90/api/Inventory/GetServerscount',
+          url: 'http://10.112.87.90/api/Inventory/GetServerscount',
           type: 'GET',
           data: {email: "{{ user.email }}", is_staff : "{{ user.is_staff }}" },
           contentType:'application/json',

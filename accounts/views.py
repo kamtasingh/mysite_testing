@@ -79,4 +79,18 @@ def runtest(request):
     template_name = 'runtest.html'
     return render(request, template_name, {})
 
+@login_required
+def review_scripts(request):
+    template_name = 'scriptsreview.html'
+    return render(request, template_name, {})
+
+@login_required
+def review_scripts_details(request):
+    print 2222222222222222222222222222222222222
+    template_name = 'scriptreviewdetail.html'
+    return render(request, template_name, {})
+
+
+
+
 

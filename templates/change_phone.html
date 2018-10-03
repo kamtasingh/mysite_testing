@@ -165,7 +165,7 @@ getphoneinfo();
 
 function getphoneinfo(){
 $.ajax({
-          url: 'http://10.112.86.90/api/inventory/GetDesktopInfo',
+          url: 'http://10.112.87.90/api/inventory/GetDesktopInfo',
           type: 'GET',
           data: {serial: "{{ request.GET.serialno }}"},
           contentType:'application/json',

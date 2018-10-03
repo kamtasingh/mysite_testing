@@ -13,7 +13,7 @@
                         <div class="row">
 
                             <div class="col-lg-12">
-                                <a class="btn btn-primary btn-sm pull-right" target="_blank" href="#">
+                                <a class="btn btn-primary btn-sm pull-right" target="_blank" href="/mysite/download/serverdetail/">
                                  <i class="fa fa-download"></i> Export File
                             </a>
                                <a class="btn btn-primary btn-sm pull-right mr-1" target="_blank" href="add/">
@@ -21,7 +21,7 @@
                             </a>
 
 
-                                <div class="table-responsive table--no-card m-b-30">
+                                <div class="table-responsive table-data table--no-card m-b-30">
                                     <table class="table table-borderless table-data3" style="margin-top:5px !important">
                                         <thead>
                                             <tr>
@@ -74,7 +74,7 @@ serverDetail();
 
 function serverDetail(){
 $.ajax({
-          url: 'http://10.112.86.90/api/Inventory/GetServers',
+          url: 'http://10.112.87.90/api/Inventory/GetServers',
           type: 'GET',
           data: {email: "{{ user.email }}", is_staff : "{{ user.is_staff }}" },
           contentType:'application/json',
@@ -86,7 +86,7 @@ $.ajax({
           for (var i = 0; i < data.length; i++) {
           validate="";
           if (data[i].validationStatus != 1){
-          validate=' <a class="btn btn-sm btn-success pull-right validate" href="http://10.112.86.90/api/inventory/ValidateDesktop/?email={{ user.email }}&serial='+data[i].SerialNo+'"> Validate </a>'
+          validate=' <a class="btn btn-sm btn-success pull-right validate" href="http://10.112.87.90/api/inventory/ValidateDesktop/?email={{ user.email }}&serial='+data[i].SerialNo+'"> Validate </a>'
           }
 
            options += '<tr><td><a href="/mysite/serverdetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a></td><td>'+ data[i].IP + '</td><td>'+ getcolorbubble(data[i].WarrantyStatus) +'</td><td>'+ getcolorbubble(data[i].Status) +'</td><td>'+ getcolorbubble(data[i].validationStatus) + validate +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].Description + '</td></tr>';

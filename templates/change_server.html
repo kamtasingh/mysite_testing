@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
-                                    <div class="card-header">Modify Server</div>
+                                    <div class="card-header"><b>Modify Server</b></div>
                                      <div class="card-body">
                                         <form method="get" action="" id="modify_server">
                                             {% csrf_token %}
@@ -43,18 +43,18 @@
                                               <div class="row form-group">
                                                 <div class="col-md-6">
                                                     <label class="control-label mb-1">Core</label>
-                                                  <input type="text" class="form-control" id="Core" name="Core" placeholder="Core" required>
+                                                  <input type="number" min="0" step="1" class="form-control" id="Core" name="Core" placeholder="Core" required>
                                                     </div>
                                                 <div class="col-md-6">
                                                     <label class="control-label mb-1">RAM</label>
-                                                    <input type="text" class="form-control" id="RAM" name="RAM" placeholder="RAM" required>
+                                                    <input type="number" min="0" step="1" class="form-control" id="RAM" name="RAM" placeholder="RAM" required>
                                                 </div>
 
                                             </div>
                                         <div class="row form-group">
                                                 <div class="col-md-6">
                                                     <label class="control-label mb-1">HDD</label>
-                                                    <input type="text" class="form-control" id="HDD" name="HDD" placeholder="HDD" required>
+                                                    <input type="number" min="0" step="1" class="form-control" id="HDD" name="HDD" placeholder="HDD" required>
 
                                                 </div>
                                                 <div class="col-md-6">
@@ -155,7 +155,7 @@ getserverinfo();
 
 function getserverinfo(){
 $.ajax({
-          url: 'http://10.112.86.90/api/inventory/GetServerInfo',
+          url: 'http://10.112.87.90/api/inventory/GetServerInfo',
           type: 'GET',
           data: {serial: "{{ request.GET.serialno }}"},
           contentType:'application/json',

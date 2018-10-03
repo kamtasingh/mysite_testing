@@ -8,6 +8,8 @@ urlpatterns = [
     url(r'^mysite/sanity/$', sanity, name='sanity'),
     url(r'^mysite/build/$', build, name='build'),
     url(r'^mysite/runtest/$', runtest, name='runtest'),
+    url(r'^mysite/review/scripts/$', review_scripts, name='review_scripts'),
+    url(r'^mysite/review/scripts/details/$', review_scripts_details, name='review_scripts_details'),
 
 ]
 
