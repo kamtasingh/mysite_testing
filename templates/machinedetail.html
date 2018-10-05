@@ -26,9 +26,12 @@
                                                 <th>SerialNo</th>
                                                 <th>IP</th>
                                                 <th>HostName</th>
-                                                <th>WarrantyStatus</th>
+                                                <th>Warranty Status</th>
                                                 <th>Status</th>
                                                 <th>validationStatus</th>
+                                                {% if user.is_staff %}
+                                                <th>#</th>
+                                                {% endif %}
                                                 <th>RAM</th>
                                                 <th>OwnerPerson</th>
                                                 <th>Physicallocation</th>
@@ -72,6 +75,8 @@ serverDetail();
 
 
 function serverDetail(){
+
+var staff = "{{ user.is_staff }}"
 $.ajax({
           url: 'http://10.112.87.90/api/Inventory/GetDesktops',
           type: 'GET',
@@ -88,12 +93,17 @@ $.ajax({
           if (data[i].validationStatus != 1){
           validate=' <a class="btn btn-sm btn-success pull-right validate" href="http://10.112.87.90/api/inventory/ValidateDesktop/?email={{ user.email }}&serial='+data[i].SerialNo+'"> Validate </a>'
           }
-          delete='<a href="http://10.112.87.90/api/inventory/ValidateDesktop/?email={{ user.email }}&serial='+data[i].SerialNo+'" style="color:red"><i class="fa fa-trash-alt"></i></a>'
-           options += '<tr><td><a href="/mysite/machinedetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a> &nbsp; &nbsp;'+ delete + ' </td><td>'+ data[i].IP + '</td><td>'+ data[i].HostName + '</td><td>'+ getcolorbubble(data[i].WarrantyStatus) +'</td><td>'+ getcolorbubble(data[i].Status) +'</td><td>'+ getcolorbubble(data[i].validationStatus) + validate +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].ProvidedBy + '</td><td>'+ data[i].Description + '</td></tr>';
+          delete1=' <a class="deletedesktop" style="color:red" href="http://10.112.87.90/api/inventory/DeleteDesktop/?email={{ user.email }}&serial='+data[i].SerialNo+'" ><i class="fa fa-trash-alt"></i></a>'
 
+          if(staff == "True"){
+           options += '<tr><td><a href="/mysite/machinedetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a>  </td><td>'+ data[i].IP + '</td><td>'+ data[i].HostName + '</td><td>'+ getcolorbubble(data[i].WarrantyStatus) +'</td><td>'+ getcolorbubble(data[i].Status) +'</td><td>'+ getcolorbubble(data[i].validationStatus) + validate +'</td><td>'+delete1+'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].ProvidedBy + '</td><td>'+ data[i].Description + '</td></tr>';
+}
+else{
+options += '<tr><td><a href="/mysite/machinedetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a>  </td><td>'+ data[i].IP + '</td><td>'+ data[i].HostName + '</td><td>'+ getcolorbubble(data[i].WarrantyStatus) +'</td><td>'+ getcolorbubble(data[i].Status) +'</td><td>'+ getcolorbubble(data[i].validationStatus) + validate +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].ProvidedBy + '</td><td>'+ data[i].Description + '</td></tr>';
+}
            }
          if (data.length == 0){
-          options += '<tr><td colspan="11" style="text-align:left">No Machines Found </td></tr>'
+          options += '<tr><td colspan="12" style="text-align:left">No Machines Found </td></tr>'
          }
           $("tbody#builddata").html(options);
 

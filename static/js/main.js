@@ -2196,6 +2196,48 @@ return circle;
 return false;
         });
   })(jQuery);
+ (function ($) {
+ $('table tbody').on('click','.deleteserver', function () {
+  href=$(this).attr("href");
+  $.ajax({
+          url: href,
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {},
+          success: function(data) {
+          if (data){
+          alert("Request has been submitted successfully.");
+          }
+          window.location="";
+
+          },
+          error: function() { console.log('Something wrong happen. Please try again!'); window.location=""; }
+        });
+return false;
+        });
+  })(jQuery);
+  (function ($) {
+ $('table tbody').on('click','.deletedesktop', function () {
+  href=$(this).attr("href");
+  $.ajax({
+          url: href,
+          type: 'GET',
+          contentType:'application/json',
+          dataType: 'json',
+          data: {},
+          success: function(data) {
+          if (data){
+          alert("Request has been submitted successfully.");
+          }
+          window.location="";
+
+          },
+          error: function() { console.log('Something wrong happen. Please try again!'); window.location=""; }
+        });
+return false;
+        });
+  })(jQuery);
 
 
   (function ($) {
