@@ -88,7 +88,8 @@ $.ajax({
           if (data[i].validationStatus != 1){
           validate=' <a class="btn btn-sm btn-success pull-right validate" href="http://10.112.87.90/api/inventory/ValidateDesktop/?email={{ user.email }}&serial='+data[i].SerialNo+'"> Validate </a>'
           }
-           options += '<tr><td><a href="/mysite/machinedetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a></td><td>'+ data[i].IP + '</td><td>'+ data[i].HostName + '</td><td>'+ getcolorbubble(data[i].WarrantyStatus) +'</td><td>'+ getcolorbubble(data[i].Status) +'</td><td>'+ getcolorbubble(data[i].validationStatus) + validate +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].ProvidedBy + '</td><td>'+ data[i].Description + '</td></tr>';
+          delete='<a href="http://10.112.87.90/api/inventory/ValidateDesktop/?email={{ user.email }}&serial='+data[i].SerialNo+'" style="color:red"><i class="fa fa-trash-alt"></i></a>'
+           options += '<tr><td><a href="/mysite/machinedetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a> &nbsp; &nbsp;'+ delete + ' </td><td>'+ data[i].IP + '</td><td>'+ data[i].HostName + '</td><td>'+ getcolorbubble(data[i].WarrantyStatus) +'</td><td>'+ getcolorbubble(data[i].Status) +'</td><td>'+ getcolorbubble(data[i].validationStatus) + validate +'</td><td>'+ data[i].RAM + '</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].ProvidedBy + '</td><td>'+ data[i].Description + '</td></tr>';
 
            }
          if (data.length == 0){
