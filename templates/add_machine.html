@@ -43,6 +43,8 @@
                                                 </div>
 
                                             </div>
+                                            {% comment %}
+
                                         <div class="row form-group">
 
                                                 <div class="col-md-6">
@@ -50,6 +52,8 @@
                                                     <label class="control-label mb-1">Expired At</label>
                                                     <input type="date" name="WarrantyStatus" class="form-control"  min="2015-12-31" placeholder="Expired At">
                                                                </div>
+
+
                                              <div class="col-md-6">
 
                                                     <label class="control-label mb-1">Status</label>
@@ -63,6 +67,8 @@
                                                     </select>
                                                 </div>
                                         </div>
+
+                                            {% endcomment %}
                                              <div class="row form-group">
                                                 <div class="col-md-6">
                                                     <textarea name="Description" id="Description" placeholder="Description" rows="1" cols="53" class="form-control" required></textarea>
@@ -104,6 +110,18 @@
                                                         <option value="MITEL">Mitel</option>
                                                     </select>
                                                                      </div>
+                                                 <div class="col-md-6">
+
+                                                    <label class="control-label mb-1">Status</label>
+                                                 <select name="Status" id="Status" class="form-control">
+                                                        <option value="">--Status--</option>
+                                                        <option value="1">Online</option>
+                                                        <option value="2">Offline</option>
+                                                        <option value="3">Not in Use </option>
+                                                        <option value="4">Working but known issue </option>
+                                                        <option value="5">Status unknown</option>
+                                                    </select>
+                                                </div>
 
                                             <input type="hidden" name="actionBy" value="{{ user.email }}" >
                                          </div>

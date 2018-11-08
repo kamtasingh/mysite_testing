@@ -49,6 +49,7 @@
                                                 </div>
 
                                             </div>
+                                            {% comment %}
                                         <div class="row form-group">
 
                                                 <div class="col-md-6">
@@ -73,6 +74,7 @@
 
                                                 </div>
                                         </div>
+                                            {% endcomment %}
                                              <div class="row form-group">
                                                 <div class="col-md-6">
                                                     <label class="control-label mb-1">Description</label>
@@ -125,6 +127,18 @@
                                                         <option value="MITEL">Mitel</option>
                                                     </select>
                                                                      </div>
+                                                 <div class="col-md-6">
+                                                    <label class="control-label mb-1">Status</label>
+                                                 <select name="Status" id="Status" class="form-control">
+                                                        <option value="">--Status--</option>
+                                                        <option value="1">Online</option>
+                                                        <option value="2">Offline</option>
+                                                        <option value="3">Not in Use </option>
+                                                        <option value="4">Working but known issue </option>
+                                                        <option value="5">Status unknown</option>
+                                                    </select>
+
+                                                </div>
 
                                             <input type="hidden" name="actionBy" value="{{ user.email }}" >
                                          </div>

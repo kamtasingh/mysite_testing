@@ -59,7 +59,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                      <label class="control-label mb-1">Expired At</label>
-                                                    <input type="date" name="WarrantyStatus" class="form-control" required min="2015-12-31" placeholder="Expired At">
+                                                    <input type="date" name="WarrantyStatus" id="WarrantyStatus" class="form-control" required min="2015-12-31" placeholder="Expired At" >
 
                                                                </div>
                                         </div>
@@ -162,6 +162,14 @@ $.ajax({
           dataType: 'json',
           success: function(data) {
           console.log(data);
+          datedata=data.WarrantyExpirationDate
+          if(datedata){
+          datestr=datedata.split(" ")[0].split("/");
+          datedata=datestr[0];
+          }
+          else{
+          datedata="2011-01-01"
+          }
           $("#Make").val(data.Make);
           $("#Model").val(data.Model);
           $("#SerialNo").val(data.SerialNo);
@@ -169,6 +177,7 @@ $.ajax({
           $("#Core").val(data.Core);
           $("#RAM").val(data.RAM);
           $("#HDD").val(data.HDD);
+          $("#WarrantyStatus").val(datedata);
           $("#Description").val(data.Description);
           $("#OwnerTeam").val(data.OwnerTeam);
           $("#OwnerPerson").val(data.OwnerPerson);
