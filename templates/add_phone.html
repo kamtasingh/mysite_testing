@@ -19,110 +19,65 @@
                                              <div class="row form-group">
                                                 <div class="col-md-6">
                                                   <input type="text" class="form-control" id="Make" name="Make" placeholder="Make" required>
-                                                    </div>
+                                                </div>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" id="Model" name="Model" placeholder="Model" required>
                                                 </div>
-
-                                            </div>
-                                        <div class="row form-group">
+                                             </div>
+                                             <div class="row form-group">
                                                 <div class="col-md-6">
                                                   <input type="text" class="form-control" id="SerialNo" name="SerialNo" placeholder="SerialNo" required>
-                                                    </div>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="Processor" name="Processor" placeholder="Processor" required>
                                                 </div>
-
-                                            </div>
-                                      <div class="row form-group">
-                                                <div class="col-md-6">
-                                                  <input type="text" class="form-control" id="RAM" name="RAM" placeholder="RAM" required>
-                                                    </div>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="HDD" name="HDD" placeholder="HDD" required>
-                                                </div>
-
-                                            </div>
-                                        <div class="row form-group">
-
                                                 <div class="col-md-6">
 
-                                                    <label class="control-label mb-1">Expired At</label>
-                                                    <input type="date" name="WarrantyStatus" class="form-control"  min="2015-12-31" placeholder="Expired At">
-                                                               </div>
-                                             <div class="col-md-6">
-
-                                                    <label class="control-label mb-1">Status</label>
-                                                 <select name="Status" id="Status" class="form-control">
+                                                 <select name="Status" id="Status" class="form-control" required>
                                                         <option value="">--Status--</option>
                                                         <option value="1">Online</option>
                                                         <option value="2">Offline</option>
                                                         <option value="3">Not in Use </option>
                                                         <option value="4">Working but known issue </option>
                                                         <option value="5">Status unknown</option>
-                                                    </select>
+                                                 </select>
                                                 </div>
-                                        </div>
+
+                                             </div>
                                              <div class="row form-group">
                                                 <div class="col-md-6">
-                                                    <textarea name="Description" id="Description" placeholder="Description" rows="1" cols="53" class="form-control" required></textarea>
-                                                                     </div>
-                                             <div class="col-md-6">
-                                                     <input type="text" class="form-control" id="OwnerTeam" name="OwnerTeam" placeholder="OwnerTeam" required>
-                                                                     </div>
-                                         </div>
-                                            <div class="row form-group">
+                                                   <textarea name="Description" id="Description" placeholder="Description" rows="1" cols="53" class="form-control" required></textarea>
+                                                </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="Ownerperson" name="OwnerPerson" placeholder="OwnerPerson" required>
-                                                                     </div>
-                                             <div class="col-md-6">
-                                                     <input type="text" class="form-control" id="Leasedto" name="Leasedto" placeholder="Leasedto">
-                                                                     </div>
-                                         </div>
-                                            <div class="row form-group">
-                                                 <div class="col-md-6">
-                                                     <input type="text" class="form-control" id="UsedBy" name="UsedBy" placeholder="UsedBy">
-                                                                     </div>
-                                             <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="OwnerTeam" name="OwnerTeam" placeholder="OwnerTeam" required>
+                                                </div>
+                                             </div>
+                                             <div class="row form-group">
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="Ownerperson" name="Ownerperson" placeholder="Ownerperson" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="Leasedto" name="Leasedto" placeholder="Leasedto">
+                                                </div>
+                                             </div>
+                                             <div class="row form-group">
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="UsedBy" name="UsedBy" placeholder="UsedBy">
+                                                </div>
+                                                <div class="col-md-6">
                                                      <input type="text" class="form-control" id="Physicallocation" name="Physicallocation" placeholder="Physicallocation" required>
-                                                                     </div>
-                                         </div>
+                                                </div>
+                                            </div>
                                             <div class="row form-group">
-                                                 <div class="col-md-6">
-                                                     <input type="text" class="form-control" id="IP" name="IP" placeholder="IP" required>
-                                                                     </div>
-                                             <div class="col-md-6">
-                                                     <input type="text" class="form-control" id="HoastName" name="HostName" placeholder="HostName" required>
-                                                                     </div>
-                                         </div>
-                                             <div class="row form-group">
-                                                 <div class="col-md-6">
-                                                     <label class="control-label mb-1">Provided By</label>
-                                                     <select name="WarrantyStatus" id="ProvidedBy" class="form-control" required>
-                                                        <option value="">--ProvidedBy--</option>
-                                                        <option value="HCL">HCL</option>
-                                                        <option value="MITEL">Mitel</option>
-                                                    </select>
-                                                                     </div>
-
-                                            <input type="hidden" name="actionBy" value="{{ user.email }}" >
-                                         </div>
-
-                                        <div><button type="submit" class="btn btn-lg btn-info btn-block addphone">
-                                                    Add Phone
-                                                </button></div>
-                                            </form>
+                                                <div class="col-md-6">
+                                                    <input type="hidden" name="actionBy" value="{{ user.email }}" >
+                                                </div>
+                                            </div>
+                                            <div><button type="submit" class="btn btn-lg btn-info btn-block addphone">
+                                                 Add Phone
+                                            </button></div>
+                                        </form>
+                                    </div>
                                 </div>
-
-
-                    </div>
                             </div>
                         </div>
-
-
-
-
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -137,4 +92,39 @@
 
 {% endblock %}
 {% block extrajs %}
+    <script>
+(function ($) {
+  $("form#add_phone").submit(function(){
+
+  var dataobj=ConvertFormToJSON(this);
+  dataobj=JSON.stringify(dataobj);
+
+  $.ajax({
+          url: 'http://10.112.87.90/api/Inventory/adddesktop',
+          type: 'POST',
+          contentType:'application/json',
+          dataType: 'json',
+          data: dataobj,
+          success: function(data) {
+           $.ajax({url: "http://10.112.87.90/api/Inventory/updatedesktopview", success: function(result){
+            console.log("Request sent seuccessfully");
+        }});
+          alert("Your machine data has been submitted successfully, it will be display on detail page after 2 min.");
+          window.location="/mysite/machinedetail";
+          },
+          error: function() {
+          alert('Something wrong happen. Please try again!');
+          window.location="/mysite/serverdetail";
+          }
+        });
+
+        return false;
+
+
+  });
+
+  })(jQuery);
+    </script>
+
+
 {% endblock %}

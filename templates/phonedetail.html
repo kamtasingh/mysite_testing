@@ -13,11 +13,11 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <a class="btn btn-primary btn-sm pull-right" target="_blank" href="/mysite/download/phonedetail/">
-                                 <i class="fa fa-download"></i> Export File
-                            </a>
-                                  <a class="btn btn-primary btn-sm pull-right mr-1" target="_blank" href="add/">
-                                 <i class="fa fa-plus"></i> Add
-                            </a>
+                                    <i class="fa fa-download"></i> Export File
+                                </a>
+                                <a class="btn btn-primary btn-sm pull-right mr-1" target="_blank" href="add/">
+                                    <i class="fa fa-plus"></i> Add
+                                </a>
                                 <div class="table-responsive table-data table--no-card m-b-30">
                                     <table class="table table-borderless table-data3" style="margin-top:5px !important">
                                         <thead>
@@ -47,8 +47,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -56,7 +54,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -68,12 +65,12 @@
 
     <script>
 
-serverDetail();
+phoneDetail();
 
 
-function serverDetail(){
+function phoneDetail(){
 $.ajax({
-          url: 'http://10.112.87.90/api/Inventory/GetDesktops',
+          url: 'http://10.112.87.90/api/Inventory/GetPhone',
           type: 'GET',
           data: {email: "{{ user.email }}", is_staff : "{{ user.is_staff }}" },
           contentType:'application/json',
