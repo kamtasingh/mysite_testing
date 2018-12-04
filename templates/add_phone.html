@@ -100,21 +100,21 @@
   dataobj=JSON.stringify(dataobj);
 
   $.ajax({
-          url: 'http://10.112.87.90/api/Inventory/adddesktop',
+          url: 'http://10.112.87.90/api/Inventory/AddPhone',
           type: 'POST',
           contentType:'application/json',
           dataType: 'json',
           data: dataobj,
           success: function(data) {
-           $.ajax({url: "http://10.112.87.90/api/Inventory/updatedesktopview", success: function(result){
+           $.ajax({url: "http://10.112.87.90/api/Inventory/updatephoneview", success: function(result){
             console.log("Request sent seuccessfully");
         }});
-          alert("Your machine data has been submitted successfully, it will be display on detail page after 2 min.");
-          window.location="/mysite/machinedetail";
+          alert("Your phone data has been submitted successfully, it will be display on detail page after 2 min.");
+          window.location="/mysite/phonedetail";
           },
           error: function() {
           alert('Something wrong happen. Please try again!');
-          window.location="/mysite/serverdetail";
+          window.location="/mysite/phonedetail";
           }
         });
 
