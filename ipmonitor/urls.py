@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^serverdetail/$', serverdetail, name='serverdetails'),
     url(r'^download/machinedetail/$', downloadmachinedetail, name='downloadmachinedetail'),
     url(r'^download/serverdetail/$', downloadserverdetail, name='downloadserverdetails'),
+    url(r'^download/phonedetail/$', downloadphonedetail, name='downloadphonedetails'),
     url(r'^phonedetail/$', TemplateView.as_view(template_name="phonedetail.html")),
     url(r'^phonedetail/add/$', TemplateView.as_view(template_name="add_phone.html")),
     url(r'^phonedetail/change/$', TemplateView.as_view(template_name="change_phone.html")),
