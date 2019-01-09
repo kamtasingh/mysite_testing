@@ -2373,6 +2373,40 @@ return false;
   })(jQuery);
 
 
+(function ($) {
+  $("form#change_phone").submit(function(){
+  var dataobj=ConvertFormToJSON(this);
+  dataobj=JSON.stringify(dataobj);
+  $.ajax({
+          url: 'http://10.112.87.90/api/Inventory/updatephone',
+          type: 'POST',
+          contentType:'application/json',
+          dataType: 'json',
+          data: dataobj,
+          success: function(data) {
+          $.ajax({url: "http://10.112.87.90/api/Inventory/updatephoneview", success: function(result){
+            console.log("Request sent seuccessfully");
+        }});
+
+          alert("Your machine detail has been submitted successfully, it will be display on detail page after 2 min.");
+          window.location="/mysite/phonedetail";
+          },
+          error: function() {
+
+          alert('Something wrong happen. Please try again!');
+          window.location="/mysite/phonedetail";
+           }
+        });
+        return false;
+
+
+
+
+  });
+
+  })(jQuery);
+
+
   function ConvertFormToJSON(form){
     var array = jQuery(form).serializeArray();
     var json = {};
