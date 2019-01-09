@@ -90,12 +90,12 @@ def downloadphonedetail(request):
     print data.json()
     print len(data.json())
     rows = [['Physicallocation','OwnerTeam','Description','SerialNo','Make','Status','UsedBy','OwnerPerson','TypeOfDeployment','IP','validationStatus','Model']]
-    data = [[k[i].encode('ascii','ignore') for i in rows[0]] for k in data.json()]
+    data = [[k[i] for i in rows[0]] for k in data.json()]
     #print data
     rows.extend(data)
     pseudo_buffer = Echo()
     writer = csv.writer(pseudo_buffer)
     response = StreamingHttpResponse((writer.writerow(row) for row in rows),
                                      content_type="text/csv")
-    response['Content-Disposition'] = 'attachment; filename="serverdetail.csv"'
+    response['Content-Disposition'] = 'attachment; filename="phonedetail.csv"'
     return response
