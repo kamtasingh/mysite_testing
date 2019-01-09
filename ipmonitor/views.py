@@ -89,8 +89,8 @@ def downloadphonedetail(request):
     #print data
     print data.json()
     print len(data.json())
-    rows = [['Physicallocation','OwnerTeam','Description','SerialNo','Make','Status','UsedBy','OwnerPerson','TypeOfDeployment','IP','validationStatus','Model']]
-    data = [[k[i] for i in rows[0]] for k in data.json()]
+    rows = [['WarrantyStatus','Core','Physicallocation','OwnerTeam','Description','SerialNo','Make','RAM','Status','SubnetDetails','HDD','UsedBy','OwnerPerson','TypeOfDeployment','IP','validationStatus','Leasedto','Model','Processor']]
+    data = [[k[i].encode('ascii','ignore') for i in rows[0]] for k in data.json()]
     #print data
     rows.extend(data)
     pseudo_buffer = Echo()
