@@ -89,7 +89,7 @@ def downloadphonedetail(request):
     #print data
     print data.json()
     print len(data.json())
-    rows = [['Make','Model','Core','SerialNo','Status','Physicallocation','OwnerTeam','OwnerPerson','UsedBy','Leasedto','Description']]
+    rows = [['Make','Model','SerialNo','Status','Physicallocation','OwnerTeam','OwnerPerson','UsedBy','Leasedto','Description']]
     data = [[k[i].encode('ascii','ignore') for i in rows[0]] for k in data.json()]
     #print data
     rows.extend(data)
