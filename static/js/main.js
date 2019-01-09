@@ -2169,7 +2169,7 @@ else if (data == 4)
 {
 circle='<i class="fa fa-circle" style="color:orange"></i>';
 }
-else if (data == 5 or data == "")
+else if (data == 5 or data == " ")
 {
 circle='<i class="fa fa-circle" style="color:black"></i>';
 }
