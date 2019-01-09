@@ -2315,15 +2315,15 @@ return false;
 
   $.ajax({
           url: 'http://10.112.87.90/api/Inventory/updateserver',
-          type: 'GET',
+          type: 'POST',
           contentType:'application/json',
           dataType: 'json',
           data: dataobj,
           success: function(data) {
            $.ajax({url: "http://10.112.87.90/api/Inventory/updateserverview", success: function(result){
-            console.log("Request sent seuccessfully");
+            console.log("Request sent successfully");
         }});
-          alert("Your server detail has been submitted successfully, it will be display on detail page after 2 min.");
+          alert("Your server detail has been submitted successfully, it will display on detail page after 2 min.");
           window.location="/mysite/serverdetail";
           },
           error: function() {
