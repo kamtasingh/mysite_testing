@@ -2254,9 +2254,9 @@ return false;
           data: dataobj,
           success: function(data) {
            $.ajax({url: "http://10.112.87.90/api/Inventory/updatedesktopview", success: function(result){
-            console.log("Request sent seuccessfully");
+            console.log("Request sent successfully");
         }});
-          alert("Your machine data has been submitted successfully, it will be display on detail page after 2 min.");
+          alert("Your machine data has been submitted successfully, it will be display on detail page after sometime");
           window.location="/mysite/machinedetail";
           },
           error: function() {
@@ -2287,9 +2287,9 @@ return false;
           data: dataobj,
           success: function(data) {
            $.ajax({url: "http://10.112.87.90/api/Inventory/updateserverview", success: function(result){
-            console.log("Request sent seuccessfully");
+            console.log("Request sent successfully");
         }});
-          alert("Your server data has been submitted successfully, it will be display on detail page after 2 min.");
+          alert("Your server data has been submitted successfully, it will be display on detail page after sometime");
           window.location="/mysite/serverdetail";
 
 
@@ -2323,7 +2323,7 @@ return false;
            $.ajax({url: "http://10.112.87.90/api/Inventory/updateserverview", success: function(result){
             console.log("Request sent successfully");
         }});
-          alert("Your server detail has been submitted successfully, it will display on detail page after 2 min.");
+          alert("Your server detail has been submitted successfully, it will display on detail page after sometime");
           window.location="/mysite/serverdetail";
           },
           error: function() {
@@ -2351,10 +2351,10 @@ return false;
           data: dataobj,
           success: function(data) {
           $.ajax({url: "http://10.112.87.90/api/Inventory/updatedesktopview", success: function(result){
-            console.log("Request sent seuccessfully");
+            console.log("Request sent successfully");
         }});
 
-          alert("Your machine detail has been submitted successfully, it will be display on detail page after 2 min.");
+          alert("Your machine detail has been submitted successfully, it will be display on detail page after sometime");
           window.location="/mysite/machinedetail";
           },
           error: function() {
@@ -2385,10 +2385,10 @@ return false;
           data: dataobj,
           success: function(data) {
           $.ajax({url: "http://10.112.87.90/api/Inventory/updatephoneview", success: function(result){
-            console.log("Request sent seuccessfully");
+            console.log("Request sent successfully");
         }});
 
-          alert("Your machine detail has been submitted successfully, it will be display on detail page after 2 min.");
+          alert("Your phone detail has been submitted successfully, it will be display on detail page after sometime");
           window.location="/mysite/phonedetail";
           },
           error: function() {
