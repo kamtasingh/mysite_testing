@@ -2169,7 +2169,7 @@ else if (data == 4)
 {
 circle='<i class="fa fa-circle" style="color:orange"></i>';
 }
-else if (data == 5)
+else if (data == 5 || data == "")
 {
 circle='<i class="fa fa-circle" style="color:black"></i>';
 }
@@ -2254,9 +2254,9 @@ return false;
           data: dataobj,
           success: function(data) {
            $.ajax({url: "http://10.112.87.90/api/Inventory/updatedesktopview", success: function(result){
-            console.log("Request sent seuccessfully");
+            console.log("Request sent successfully");
         }});
-          alert("Your machine data has been submitted successfully, it will be display on detail page after 2 min.");
+          alert("Your machine data has been submitted successfully, it will be display on detail page after sometime");
           window.location="/mysite/machinedetail";
           },
           error: function() {
@@ -2287,9 +2287,9 @@ return false;
           data: dataobj,
           success: function(data) {
            $.ajax({url: "http://10.112.87.90/api/Inventory/updateserverview", success: function(result){
-            console.log("Request sent seuccessfully");
+            console.log("Request sent successfully");
         }});
-          alert("Your server data has been submitted successfully, it will be display on detail page after 2 min.");
+          alert("Your server data has been submitted successfully, it will be display on detail page after sometime");
           window.location="/mysite/serverdetail";
 
 
@@ -2315,15 +2315,15 @@ return false;
 
   $.ajax({
           url: 'http://10.112.87.90/api/Inventory/updateserver',
-          type: 'GET',
+          type: 'POST',
           contentType:'application/json',
           dataType: 'json',
           data: dataobj,
           success: function(data) {
            $.ajax({url: "http://10.112.87.90/api/Inventory/updateserverview", success: function(result){
-            console.log("Request sent seuccessfully");
+            console.log("Request sent successfully");
         }});
-          alert("Your server detail has been submitted successfully, it will be display on detail page after 2 min.");
+          alert("Your server detail has been submitted successfully, it will display on detail page after sometime");
           window.location="/mysite/serverdetail";
           },
           error: function() {
@@ -2351,16 +2351,50 @@ return false;
           data: dataobj,
           success: function(data) {
           $.ajax({url: "http://10.112.87.90/api/Inventory/updatedesktopview", success: function(result){
-            console.log("Request sent seuccessfully");
+            console.log("Request sent successfully");
         }});
 
-          alert("Your machine detail has been submitted successfully, it will be display on detail page after 2 min.");
+          alert("Your machine detail has been submitted successfully, it will be display on detail page after sometime");
           window.location="/mysite/machinedetail";
           },
           error: function() {
 
           alert('Something wrong happen. Please try again!');
           window.location="/mysite/machinedetail";
+           }
+        });
+        return false;
+
+
+
+
+  });
+
+  })(jQuery);
+
+
+(function ($) {
+  $("form#change_phone").submit(function(){
+  var dataobj=ConvertFormToJSON(this);
+  dataobj=JSON.stringify(dataobj);
+  $.ajax({
+          url: 'http://10.112.87.90/api/Inventory/updatephone',
+          type: 'POST',
+          contentType:'application/json',
+          dataType: 'json',
+          data: dataobj,
+          success: function(data) {
+          $.ajax({url: "http://10.112.87.90/api/Inventory/updatephoneview", success: function(result){
+            console.log("Request sent successfully");
+        }});
+
+          alert("Your phone detail has been submitted successfully, it will be display on detail page after sometime");
+          window.location="/mysite/phonedetail";
+          },
+          error: function() {
+
+          alert('Something wrong happen. Please try again!');
+          window.location="/mysite/phonedetail";
            }
         });
         return false;

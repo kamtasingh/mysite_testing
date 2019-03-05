@@ -78,3 +78,24 @@ def downloadserverdetail(request):
                                      content_type="text/csv")
     response['Content-Disposition'] = 'attachment; filename="serverdetail.csv"'
     return response
+
+
+
+def downloadphonedetail(request):
+    import requests
+    url = "http://10.112.87.90/api/Inventory/GetPhones"
+    data = {"email": request.user.email, "is_staff": request.user.is_staff}
+    data = requests.get(url, params=data)
+    #print data
+    print data.json()
+    print len(data.json())
+    rows = [['Make','Model','SerialNo','Status','Physicallocation','OwnerTeam','OwnerPerson','UsedBy','Leasedto','Description']]
+    data = [[k[i].encode('ascii','ignore') for i in rows[0]] for k in data.json()]
+    #print data
+    rows.extend(data)
+    pseudo_buffer = Echo()
+    writer = csv.writer(pseudo_buffer)
+    response = StreamingHttpResponse((writer.writerow(row) for row in rows),
+                                     content_type="text/csv")
+    response['Content-Disposition'] = 'attachment; filename="phonedetail.csv"'
+    return response

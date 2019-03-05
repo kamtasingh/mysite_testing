@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^phonedetail/$', TemplateView.as_view(template_name="phonedetail.html")),
     url(r'^phonedetail/add/$', TemplateView.as_view(template_name="add_phone.html")),
     url(r'^phonedetail/change/$', TemplateView.as_view(template_name="change_phone.html")),
+    url(r'^download/phonedetail/$', downloadphonedetail, name='downloadphonedetail'),
 ]

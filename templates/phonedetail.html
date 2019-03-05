@@ -87,10 +87,10 @@ $.ajax({
           delete1=' <a class="deletedesktop" style="color:red" href="http://10.112.87.90/api/inventory/DeletePhone/?email={{ user.email }}&serial='+data[i].SerialNo+'" ><i class="fa fa-trash-alt"></i></a>'
 
           if(staff == "True"){
-           options += '<tr><td><a href="/mysite/phonedetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a>  </td><td>'+ getcolorbubble(data[i].validationStatus) + validate +'</td><td>'+delete1+'</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].Description + '</td></tr>';
+           options += '<tr><td><a href="/mysite/phonedetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a>  </td><td>'+ getcolorbubble(data[i].validationstatus) + validate +'</td><td>'+delete1+'</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].Description + '</td></tr>';
 }
 else{
-options += '<tr><td><a href="/mysite/phonedetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a>  </td><td>'+ getcolorbubble(data[i].validationStatus) + validate +'</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].Description + '</td></tr>';
+options += '<tr><td><a href="/mysite/phonedetail/change/?serialno='+data[i].SerialNo+'">' + data[i].SerialNo + '</a>  </td><td>'+ getcolorbubble(data[i].validationstatus) + validate +'</td><td>'+ data[i].OwnerPerson + '</td><td>'+ data[i].Physicallocation + '</td><td>'+ data[i].Description + '</td></tr>';
 }
            }
          if (data.length == 0){
