@@ -5,8 +5,15 @@ from django.shortcuts import render
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def login_site(request):
+    print request.POST
+    print request.GET
+
+    print request.POST.get('msg')
+    print request
     if request.method == "POST":
         cus = None
         username = request.POST.get('username')
@@ -28,8 +35,9 @@ def login_site(request):
         template_name = 'login.html'
         return render(request, template_name, {})
 
-
+@csrf_exempt
 def auth_logout(request):
+    print request.POST
     logout(request)
     return HttpResponseRedirect("/")
 
